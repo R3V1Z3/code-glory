@@ -5,11 +5,12 @@ jQuery(document).ready(function() {
     $('#wrapper').gitdown( {'title': 'Code Glorify',
                             'content': 'README.md',
                             'markdownit': 'false',
+                            'merge_examples': 'false',
                            } );
     
     // create slider panel
     var html = '<div class="sliders draggable">';
-    html += '<div id="titlebar"><h3>Slider panel</h3></div>';
+    html += '<div id="titlebar"><h3>Transform</h3></div>';
     html += create_slider('scale', 1, 0 ,6, 0.1);
     html += create_slider('translateX', 0, -500 ,500, 1);
     html += create_slider('translateY', 0, -500 ,500, 1);
