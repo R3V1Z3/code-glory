@@ -64,16 +64,9 @@ Some great screenshot apps here: http://alternativeto.net/software/awesome-scree
 ## Example Gists
 - [Vim logo](?gist=5611986) - Vim logo in ASCII art.
 - [Cubes](?gist=9787981) - Simple cub in ASCII.
+- [Code Glorify](?gist=26c789ec14f70f57a35c0f4efff615d9) - Logo for Code Glorify
 - [Vim Cheats](?gist=c002acb756d5cf09b1ad98494a81baa3) - Simple, intuitive cheatsheet for Vim
 
 ## Example CSS Themes
 - [Skewed](?css=1fca8332dd34ccfc0eba084deb023962) - Perspective skewed transform
 - [Code Glorify](?css=3df562d921295d88564e24b828c0b8b6) - Code Glorify logo theme
-
-## `$gd_info`
-Style your code with CSS.  
-`$gd_help_ribbon`
-`$gd_gist`
-`$gd_css`
-
-`$gd_hide`

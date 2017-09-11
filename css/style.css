@@ -1,13 +1,36 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Mr+De+Haviland|Rozha+One');
+@import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
 
 /* Remove transition effects so we can focus on styling anew */
 
 #custom * {
   transition: none;
+  font-family: 'Share Tech Mono', monospace;
 }
 
-body, html, #wrapper {
+body, html, #wrapper, .container {
   overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(119,119,119,0.3) 100%);
+}
+
+pre.hljs,
+pre code.hljs,
+.code {
+  background: none;
+}
+
+.code-overlay {
+  background: none;
+  pointer-events: none;
+}
+
+/* Info panel */
+.info {
+  color: gray;
 }
 
 /* SLIDERS */
