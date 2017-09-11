@@ -60,3 +60,10 @@ I'm all ears as to suggestions about this and will easily replace this feature i
 No built-in method is currently implemented for screenshots. It's actually difficult because of the heavy use of CSS transforms. Feel free to let me know of any viable library for HTML screenshots that considers CSS transforms. Fortunately, screenshots are easily done with countless free tools.
 
 Some great screenshot apps here: http://alternativeto.net/software/awesome-screenshot-minus/
+
+## `$gd_info`
+`$gd_help_ribbon`
+`$gd_gist`
+`$gd_css`
+
+`$gd_hide`
