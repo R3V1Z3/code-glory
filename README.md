@@ -62,6 +62,7 @@ No built-in method is currently implemented for screenshots. It's actually diffi
 Some great screenshot apps here: http://alternativeto.net/software/awesome-screenshot-minus/
 
 ## `$gd_info`
+Style your code with CSS.  
 `$gd_help_ribbon`
 `$gd_gist`
 `$gd_css`
