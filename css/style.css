@@ -17,6 +17,10 @@ body, html, #wrapper, .container {
   background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(119,119,119,0.3) 100%);
 }
 
+.inner {
+  transform: scale(1.2) translateX(38px) translateY(83px) perspective(279px) rotateX(353deg) rotateY(3deg) scaleZ(1) rotateZ(342deg) translateZ(0px);
+}
+
 pre.hljs,
 pre code.hljs,
 .code {
@@ -24,6 +28,9 @@ pre code.hljs,
 }
 
 .code-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   background: none;
   pointer-events: none;
 }
@@ -41,7 +48,7 @@ pre code.hljs,
 
 #custom .sliders {
   position: absolute;
-  top: 5px;
+  bottom: 5px;
   left: 5px;
   background: black;
   padding: 20px;

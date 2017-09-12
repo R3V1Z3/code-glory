@@ -16,6 +16,12 @@ jQuery(document).ready(function() {
         
         render_slider_panel();
         var css = $gd.get_css();
+        
+        // setup default transform if no user provided css
+        if ( css === '' ) {
+            css = '.inner { transform: scale(1.2) translateX(38px) translateY(83px) perspective(279px) rotateX(353deg) rotateY(3deg) scaleZ(1) rotateZ(342deg) translateZ(0px)';
+        }
+        
         get_transforms(css);
         register_events();
         pinch_zoom(eid_inner);
@@ -39,7 +45,6 @@ jQuery(document).ready(function() {
             if ( css != '' ) {
                 var v = parse_for_transforms(css);
                 v = v.split(' ');
-                console.log(v);
                 for ( var i = 0; i < v.length; i++ ) {
                     // name will be all text up til paren (
                     var name = v[i].split('(')[0];
