@@ -19,8 +19,9 @@ For more info on the highlight styles, see: https://highlightjs.org/
 - [Vim logo](?gist=5611986) - Vim logo in ASCII art.
 - [Cubes](?gist=9787981) - Simple cub in ASCII.
 - [Code Glorify](?gist=26c789ec14f70f57a35c0f4efff615d9) - Logo for Code Glorify
-- [Vim Cheats](?gist=c002acb756d5cf09b1ad98494a81baa3) - Simple, intuitive cheatsheet for Vim
+- [Backdrop Drop](?gist=9ef934473e4cf4d50d8b06d2598b24d1) - ASCII art mascot 
 
 ## Example CSS Themes
 - [Skewed](?css=1fca8332dd34ccfc0eba084deb023962) - Perspective skewed transform
 - [Code Glorify](?css=3df562d921295d88564e24b828c0b8b6) - Code Glorify logo theme
+- [Gradient Blue](?css=1ae9e662d22f89b2756bf4f3e17ae63f) - Dark blue gradient theme
