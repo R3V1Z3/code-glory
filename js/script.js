@@ -5,7 +5,8 @@ jQuery(document).ready(function() {
     $('#wrapper').gitdown( {'title': 'Code Glorify',
                             'content': 'README.md',
                             'markdownit': 'false',
-                            'merge_examples': 'false',
+                            'merge_gists': 'false',
+                            'merge_themes': 'false',
                             'callback': main,
                            } );
     var $gd = $('#wrapper').data('gitdown');
@@ -17,9 +18,11 @@ jQuery(document).ready(function() {
         render_slider_panel();
         var css = $gd.get_css();
         
+        var default_transform = '.inner { transform: scale(1.2) translateX(38px) translateY(83px) perspective(279px) rotateX(353deg) rotateY(3deg) scaleZ(1) rotateZ(342deg) translateZ(0px)};';
+        
         // setup default transform if no user provided css
         if ( css === '' ) {
-            css = '.inner { transform: scale(1.2) translateX(38px) translateY(83px) perspective(279px) rotateX(353deg) rotateY(3deg) scaleZ(1) rotateZ(342deg) translateZ(0px)';
+            css = default_transform;
         }
         
         get_transforms(css);
@@ -44,6 +47,11 @@ jQuery(document).ready(function() {
         function get_transforms(css) {
             if ( css != '' ) {
                 var v = parse_for_transforms(css);
+                // use default_transform if no transform provided in user css
+                if ( v === '' ) {
+                    v = parse_for_transforms(default_transform);
+                    //console.log(v);
+                }
                 v = v.split(' ');
                 for ( var i = 0; i < v.length; i++ ) {
                     // name will be all text up til paren (
@@ -52,7 +60,6 @@ jQuery(document).ready(function() {
                     var value = v[i].split('(')[1].trim();
                     // remove closing paren )
                     value = Number(value.replace(/[^0-9\.]+/g,""));
-                    console.log( 'name: ' + name + '| value: ' + value);
                     update_slider( name, value );
                 }
             }
@@ -60,16 +67,15 @@ jQuery(document).ready(function() {
         
         function parse_for_transforms(css) {
             // split at .inner
-            var i = css.split( '.inner {' );
-            if ( i.length > 0 ) {
+            if ( css.indexOf('.inner {') != -1 ) {
+                var i = css.split( '.inner {' )[1];
                 // now split at transform:
-                var j = i[1].split( 'transform:' );
-                if ( j.length > 0 ) {
+                if ( i.indexOf('transform:') != -1 ) {
+                    var j = i.split( 'transform:' )[1];
                     // lastly, split at ;
-                    var k = j[1].split( ';' );
-                    if ( k.length > 0 ) {
-                        var v = k[0].trim();
-                        return v;
+                    if ( j.indexOf(';') != -1) {
+                        var k = j.split( ';' )[0];
+                        return k.trim();
                     }
                 }
             }
@@ -82,7 +88,7 @@ jQuery(document).ready(function() {
         }
         
         function render_slider_panel() {
-            var html = '<div class="sliders draggable">';
+            var html = '<div class="sliders draggable panel">';
             html += '<div id="titlebar"><h3>Transform</h3></div>';
             html += create_slider('scale', 1, 0.1 ,6, 0.01);
             html += create_slider('translateX', 0, -2000 ,2000, 1);
@@ -96,7 +102,7 @@ jQuery(document).ready(function() {
             html += create_slider('rotateZ', 0, 0 ,360, 1);
             html += create_slider('translateZ', 0, -500 ,500, 1);
             html += '</div>';
-            $('#wrapper').append(html);
+            $('#wrapper .container').append(html);
         }
         
         // returns array with all transforms
@@ -106,17 +112,13 @@ jQuery(document).ready(function() {
                 // add key and value to t array
                 var name = $(this).attr('name');
                 var value = $(this).val();
+                var suffix = 'px';
                 if ( name.indexOf('scale') != -1 ) {
-                    t += name + '(' + value + ')';
+                    suffix = '';
                 } else if ( name.indexOf('rotate') != -1 ) {
-                    t += ' ' + name + '(' + value + 'deg)';
-                } else if ( name.indexOf('translate') != -1 ) {
-                    t += ' ' + name + '(' + value + 'px)';
-                } else if ( name.indexOf('skew') != -1 ) {
-                    t += ' ' + name + '(' + value + 'px)';
-                } else if ( name === 'perspective' ) {
-                    t += ' ' + name + '(' + value + 'px)';
+                    suffix = 'deg';
                 }
+                t += ' ' + name + '(' + value + suffix + ')';
             });
             $(eid_inner).css( 'transform', t );
         }
@@ -127,19 +129,7 @@ jQuery(document).ready(function() {
                 var name = $(this).attr('name');
                 var value = $(this).val();
                 $(this).attr('value', value);
-                if ( name.indexOf('scale') != -1 ) {
-                    transform();
-                } else if ( name.indexOf('rotate' ) != -1 ) {
-                    transform();
-                } else if ( name.indexOf('translate' ) != -1 ) {
-                    transform();
-                } else if ( name.indexOf('skew' ) != -1 ) {
-                    transform();
-                } else if ( name === 'perspective' ) {
-                    transform();
-                } else {
-                    $('.inner').css( name, value );
-                }
+                transform();
             });
             
             // mousewheel zoom handler
@@ -199,12 +189,11 @@ jQuery(document).ready(function() {
         });
         
         function dragMoveListener (event) {
-            var target = event.target,
-            // keep the dragged position in the data-x/data-y attributes
-            x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-            y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-            
+            var target = event.target;
             var $target = $(target);
+            var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+            var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+            
             if ( $target.hasClass('inner') ) {
                 update_slider( 'translateX', x );
                 update_slider( 'translateY', y );
