@@ -6,7 +6,7 @@ jQuery(document).ready(function() {
                             'content': 'README.md',
                             'markdownit': 'false',
                             'merge_gists': 'false',
-                            'merge_themes': 'false',
+                            'merge_themes': 'true',
                             'callback': main,
                            } );
     var $gd = $('#wrapper').data('gitdown');
@@ -47,16 +47,20 @@ jQuery(document).ready(function() {
         function get_transforms(css) {
             if ( css != '' ) {
                 var v = parse_for_transforms(css);
+                console.log(v);
                 // use default_transform if no transform provided in user css
                 if ( v === '' ) {
                     v = parse_for_transforms(default_transform);
-                    //console.log(v);
                 }
+                
                 v = v.split(' ');
+                console.log(v);
+                
                 for ( var i = 0; i < v.length; i++ ) {
                     // name will be all text up til paren (
                     var name = v[i].split('(')[0];
                     // value will be data after opening paren (
+                        console.log(name);
                     var value = v[i].split('(')[1].trim();
                     // remove closing paren )
                     value = Number(value.replace(/[^0-9\.]+/g,""));
@@ -69,14 +73,11 @@ jQuery(document).ready(function() {
             // split at .inner
             if ( css.indexOf('.inner {') != -1 ) {
                 var i = css.split( '.inner {' )[1];
+                i = i.split('}')[0];
                 // now split at transform:
                 if ( i.indexOf('transform:') != -1 ) {
                     var j = i.split( 'transform:' )[1];
-                    // lastly, split at ;
-                    if ( j.indexOf(';') != -1) {
-                        var k = j.split( ';' )[0];
-                        return k.trim();
-                    }
+                    return j.trim();
                 }
             }
             return '';

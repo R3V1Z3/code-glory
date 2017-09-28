@@ -17,9 +17,22 @@ body, html, #wrapper, .container {
   background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(119,119,119,0.3) 100%);
 }
 
+.section {
+  width: 50%;
+}
+
 .inner {
+  padding: 60%;
   touch-action: none;
-  transform: scale(1.2) translateX(38px) translateY(83px) perspective(279px) rotateX(353deg) rotateY(3deg) scaleZ(1) rotateZ(342deg) translateZ(0px);
+  transform:  scale(1)
+              translateX(-450px)
+              translateY(-900px)
+              perspective(280px)
+              rotateX(350deg)
+              rotateY(3deg)
+              scaleZ(1)
+              rotateZ(342deg)
+              translateZ(0px);
 }
 
 pre.hljs,
