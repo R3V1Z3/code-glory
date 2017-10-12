@@ -1,13 +1,16 @@
 @import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
 
-/* Remove transition effects so we can focus on styling anew */
-
 #custom * {
-  transition: none;
   font-family: 'Share Tech Mono', monospace;
 }
 
+.inner {
+  transition: none;
+  animation: none;
+}
+
 body, html, #wrapper, .container {
+  position: absolute;
   overflow: hidden;
   height: 100%;
   width: 100%;
@@ -19,20 +22,13 @@ body, html, #wrapper, .container {
 
 .section {
   width: 50%;
+  margin: auto;
 }
 
 .inner {
+  margin: auto;
   padding: 60%;
   touch-action: none;
-  transform:  scale(1)
-              translateX(-450px)
-              translateY(-900px)
-              perspective(280px)
-              rotateX(350deg)
-              rotateY(3deg)
-              scaleZ(1)
-              rotateZ(342deg)
-              translateZ(0px);
 }
 
 pre.hljs,

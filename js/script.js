@@ -5,8 +5,8 @@ jQuery(document).ready(function() {
     $('#wrapper').gitdown( {'title': 'Code Glorify',
                             'content': 'README.md',
                             'markdownit': 'false',
-                            'merge_gists': 'false',
-                            'merge_themes': 'true',
+                            'merge_gists': false,
+                            'merge_themes': true,
                             'callback': main,
                            } );
     var $gd = $('#wrapper').data('gitdown');
@@ -18,7 +18,9 @@ jQuery(document).ready(function() {
         render_slider_panel();
         var css = $gd.get_css();
         
-        var default_transform = '.inner { transform: scale(1.2) translateX(38px) translateY(83px) perspective(279px) rotateX(353deg) rotateY(3deg) scaleZ(1) rotateZ(342deg) translateZ(0px)};';
+        var default_transform = '.inner { transform: scale(1) translateX(-820px) translateY(-670px)';
+        default_transform += ' perspective(280px) rotateX(350deg) rotateY(3deg)';
+        default_transform += ' scaleZ(1) rotateZ(342deg) translateZ(0px)};';
         
         // setup default transform if no user provided css
         if ( css === '' ) {
@@ -28,6 +30,13 @@ jQuery(document).ready(function() {
         get_transforms(css);
         register_events();
         pinch_zoom(eid_inner);
+
+        var t = transform();
+        console.log(t);
+        var x = $('.slider.translateX').val();
+        var y = $('.slider.translateY').val();
+        $('.inner').attr( 'data-x' , x );
+        $('.inner').attr( 'data-y' , y );
         
         function pinch_zoom( element ) {
             var scale = Number( $('.slider.scale').val() );
@@ -47,23 +56,20 @@ jQuery(document).ready(function() {
         function get_transforms(css) {
             if ( css != '' ) {
                 var v = parse_for_transforms(css);
-                console.log(v);
                 // use default_transform if no transform provided in user css
                 if ( v === '' ) {
                     v = parse_for_transforms(default_transform);
                 }
                 
                 v = v.split(' ');
-                console.log(v);
                 
                 for ( var i = 0; i < v.length; i++ ) {
                     // name will be all text up til paren (
                     var name = v[i].split('(')[0];
                     // value will be data after opening paren (
-                        console.log(name);
                     var value = v[i].split('(')[1].trim();
                     // remove closing paren )
-                    value = Number(value.replace(/[^0-9\.]+/g,""));
+                    value = Number(value.replace(/[^0-9\.\-]+/g,""));
                     update_slider( name, value );
                 }
             }
@@ -106,7 +112,6 @@ jQuery(document).ready(function() {
             $('#wrapper .container').append(html);
         }
         
-        // returns array with all transforms
         function transform() {
             var t = '';
             $('.sliders .transform').each(function(){

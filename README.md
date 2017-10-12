@@ -20,15 +20,14 @@ For more info on the highlight styles, see: https://highlightjs.org/
 <!-- {$gd_element_count} -->
 
 Examples Gists <!-- {$gd_gist} -->
-- [Vim logo](https://gist.github.com/5611986) - Vim logo in ASCII art.
-- [Cubes](https://gist.github.com/9787981) - Simple cub in ASCII.
+- [Cogito ergo sum](https://gist.github.com/1afacb7b662cfbfd0624e52c6425ceee)
+- [Vim logo](https://gist.github.com/5611986) - Vim logo in ASCII art
+- [Vim Cheats](https://gist.github.com/c002acb756d5cf09b1ad98494a81baa3) - Vim command cheat sheet
+- [Cubes](https://gist.github.com/9787981) - Simple cub in ASCII
 - [Code Glorify](https://gist.github.com/26c789ec14f70f57a35c0f4efff615d9) - Logo for Code Glorify
-- [Backdrop Drop](https://gist.github.com/9ef934473e4cf4d50d8b06d2598b24d1) - ASCII art mascot 
+- [Backdrop Drop](https://gist.github.com/9ef934473e4cf4d50d8b06d2598b24d1) - ASCII art mascot
 
 Themes <!-- {$gd_css} -->
-- [Skewed](https://gist.github.com/1fca8332dd34ccfc0eba084deb023962) - Perspective skewed transform
-- [Code Glorify](https://gist.github.com/3df562d921295d88564e24b828c0b8b6) - Code Glorify logo theme
-- [Gradient Blue](https://gist.github.com/1ae9e662d22f89b2756bf4f3e17ae63f) - Dark blue gradient theme
 
 <!-- {$gd_toc="Table of Contents"} -->
 <!-- {$gd_hide} -->
