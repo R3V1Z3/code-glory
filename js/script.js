@@ -55,7 +55,7 @@ jQuery(document).ready(function() {
         
         function get_transforms(css) {
             if ( css != '' ) {
-                var v = parse_for_transforms(css);
+                var v = parse_for_transforms(default_transform);//parse_for_transforms(css);
                 // use default_transform if no transform provided in user css
                 if ( v === '' ) {
                     v = parse_for_transforms(default_transform);
@@ -140,13 +140,16 @@ jQuery(document).ready(function() {
             
             // mousewheel zoom handler
             $('.inner').on('wheel', function(e){
-                var scale = Number( $('.slider.scale').val() );
+                var v = Number( $('.slider.translateZ').val() );
+                console.log(v);
                 if(e.originalEvent.deltaY < 0) {
-                    scale += 0.05;
+                    v += 5;
+                    if ( v > 500 ) v = 500;
                 } else{
-                    scale -= 0.05;
+                    v -= 5;
+                    if ( v < -500 ) v = -500;
                 }
-                update_slider( 'scale', scale );
+                update_slider( 'translateZ', v );
                 transform();
             });
         }
