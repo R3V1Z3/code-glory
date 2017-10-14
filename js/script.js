@@ -16,7 +16,7 @@ jQuery(document).ready(function() {
         var eid_inner = '.inner';
         
         render_slider_panel();
-        var css = $gd.get_css();
+        var css = $gd.get_setting('style');
         
         var default_transform = '.inner { transform: scale(1) translateX(-820px) translateY(-670px)';
         default_transform += ' perspective(280px) rotateX(350deg) rotateY(3deg)';
@@ -32,7 +32,6 @@ jQuery(document).ready(function() {
         pinch_zoom(eid_inner);
 
         var t = transform();
-        console.log(t);
         var x = $('.slider.translateX').val();
         var y = $('.slider.translateY').val();
         $('.inner').attr( 'data-x' , x );

@@ -17,17 +17,98 @@ For more info on the highlight styles, see: https://highlightjs.org/
 
 # Examples <!-- {$gd_info} -->
 <!-- {$gd_help_ribbon} -->
-<!-- {$gd_element_count} -->
+
+Make your code glorious
 
 Examples Gists <!-- {$gd_gist} -->
 - [Cogito ergo sum](https://gist.github.com/1afacb7b662cfbfd0624e52c6425ceee)
-- [Vim logo](https://gist.github.com/5611986) - Vim logo in ASCII art
-- [Vim Cheats](https://gist.github.com/c002acb756d5cf09b1ad98494a81baa3) - Vim command cheat sheet
-- [Cubes](https://gist.github.com/9787981) - Simple cub in ASCII
-- [Code Glorify](https://gist.github.com/26c789ec14f70f57a35c0f4efff615d9) - Logo for Code Glorify
-- [Backdrop Drop](https://gist.github.com/9ef934473e4cf4d50d8b06d2598b24d1) - ASCII art mascot
+- [Vim logo](https://gist.github.com/5611986)
+- [Play Nethack Alt](https://gist.github.com/66f1f3786beb72f03c5b461519081764)
+- [WP disable jQuery Migrate](https://gist.github.com/chuckreynolds/f7f108880a1c8e674efc229245d93b09)
+- [String-reverse.js](https://gist.github.com/nilz3ro/ff9e36538de06b6a0b40a96252d58dc5)
+- [Recursion.cpp](https://gist.github.com/95beb4892f95a5945da54a069ee47b10)
+- [Cubes](https://gist.github.com/9787981)
+- [Backdrop Drop](https://gist.github.com/9ef934473e4cf4d50d8b06d2598b24d1)
+- [jQuery template](https://gist.github.com/mediaash/7983499)
 
 Themes <!-- {$gd_css} -->
+
+Highlight Styles <!-- {$gd_select_highlight} -->
+- None
+- Default
+- Agate
+- Androidstudio
+- Arduino Light
+- Arta
+- Ascetic
+- Atelier Cave Dark
+- Atelier Cave Light
+- Atelier Dune Dark
+- Atelier Dune Light
+- Atelier Estuary Dark
+- Atelier Estuary Light
+- Atelier Forest Dark
+- Atelier Forest Light
+- Atelier Heath Dark
+- Atelier Heath Light
+- Atelier Lakeside Dark
+- Atelier Lakeside Light
+- Atelier Plateau Dark
+- Atelier Plateau Light
+- Atelier Savanna Dark
+- Atelier Savanna Light
+- Atelier Seaside Dark
+- Atelier Seaside Light
+- Atelier Sulphurpool Dark
+- Atelier Sulphurpool Light
+- Brown Paper
+- Codepen Embed
+- Color Brewer
+- Dark
+- Darkula
+- Docco
+- Dracula
+- Far
+- Foundation
+- Github Gist
+- Github
+- Googlecode
+- Grayscale
+- Gruvbox Dark
+- Gruvbox Light
+- Hopscotch
+- Hybrid
+- Idea
+- Ir Black
+- Kimbie Dark
+- Kimbie Light
+- Magula
+- Mono Blue
+- Monokai Sublime
+- Monokai
+- Obsidian
+- Ocean
+- Paraiso Dark
+- Paraiso Light
+- Pojoaque
+- Purebasic
+- Qtcreator Dark
+- Qtcreator Light
+- Railscasts
+- Rainbow
+- School Book
+- Solarized Dark
+- Solarized Light
+- Sunburst
+- Tomorrow Night Blue
+- Tomorrow Night Bright
+- Tomorrow Night Eighties
+- Tomorrow Night
+- Tomorrow
+- Vs
+- Xcode
+- Xt 256
+- Zenburn
 
 <!-- {$gd_toc="Table of Contents"} -->
 <!-- {$gd_hide} -->
