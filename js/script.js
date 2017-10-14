@@ -14,6 +14,13 @@ jQuery(document).ready(function() {
     function main() {
         
         var eid_inner = '.inner';
+
+        // wrap .inner with an fx div
+        $(eid_inner).wrap('<div class="fx">');
+
+        // won't need toc at all, remove it
+        $('.info .toc-heading').remove();
+        $('.info .toc').remove();
         
         render_slider_panel();
         var css = $gd.get_setting('style');
@@ -129,6 +136,20 @@ jQuery(document).ready(function() {
         }
         
         function register_events() {
+
+            // set font based on user selection
+            $( ' .info .field.font select' ).change(function() {
+                var font = $(this).val();
+                font = font.replace( /\-/g, '+' );
+                // capitalize words
+                font = font.replace( /\b\w/g, l => l.toUpperCase() );
+                var link = `<link rel="stylesheet" href="//fonts.googleapis.com/css?family=${font}">`;
+                $('head').append(link);
+                // now lets add the font to the section elements
+                font = font.replace( /\+/g, ' ' );
+                $('.inner .section *').css({ fontFamily : font });
+            });
+
             // add click event to sliders
             $('.slider').on('input change', function(e) {
                 var name = $(this).attr('name');

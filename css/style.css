@@ -50,6 +50,25 @@ pre code.hljs,
   color: gray;
 }
 
+.info .field.select {
+  margin: 0.5em 0;
+}
+
+.info .field.select::before {
+  content: "";
+  display: none;
+}
+
+.info .field.select::after {
+  pointer-events: none;
+  content: attr(data-name);
+  position: absolute;
+  right: 0;
+  color: rgba(255,255,255,0.5);
+  margin: 5px;
+  padding-right: 24px;
+}
+
 /* SLIDERS */
 
 #custom .sliders * {

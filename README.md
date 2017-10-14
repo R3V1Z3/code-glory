@@ -33,6 +33,18 @@ Examples Gists <!-- {$gd_gist} -->
 
 Themes <!-- {$gd_css} -->
 
+Font <!-- {$gd_select_font} -->
+- Anonymous Pro
+- Cousine
+- Cutive Mono
+- Fira Mono
+- Nova Mono
+- Overpass Mono
+- Oxygen Mono
+- Share Tech Mono
+- Space Mono
+- Ubuntu Mono
+
 Highlight Styles <!-- {$gd_select_highlight} -->
 - None
 - Default
