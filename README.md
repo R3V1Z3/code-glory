@@ -1,6 +1,6 @@
 # Code Glory
 
-You've prettified your code, now make it glorious with CSS effects and SVG filters. Code Glory lets you easily add gorgeous effects to your code, no download needed.
+You've prettified your code, now make it glorious with CSS effects, transforms and SVG filters. Code Glory lets you easily add gorgeous effects to your code, no download needed.
 
 ## Usage
 
@@ -8,7 +8,7 @@ Simply post your code for free on Github Gist, get the Gist ID and enter it in t
 
 Click and drag to move the code section around on the rendered page.
 
-Code Glory uses highlight.js for syntax coloring. As a result, numerous color themes are available, accessible here using the style parameter.
+Code Glory uses highlight.js for syntax coloring which you can customize using the `highlight` parameter.
 
 Add a style parameter like so:
 https://ugotsta.github.io/code-glory/?gist=9787981&style=monokai
@@ -119,7 +119,6 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 - Tomorrow
 - Vs
 - Xcode
-- Xt 256
 - Zenburn
 
 <!-- {$gd_collapsible_transforms} -->
@@ -149,9 +148,8 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 
 <!-- {$gd_collapsible_end_filters} -->
 
-<!-- {$gd_select_svg_filter} -->
+<!-- {$gd_select_svg-filter} -->
 - None
-
 
 <!-- {$gd_toc="Table of Contents"} -->
 <!-- {$gd_hide} -->
