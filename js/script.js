@@ -15,6 +15,8 @@ jQuery(document).ready(function() {
         
         var eid_inner = '.inner';
 
+        extract_svg('filters.svg');
+
         // wrap .inner with an fx div
         $(eid_inner).wrap('<div class="fx">');
 
@@ -22,7 +24,6 @@ jQuery(document).ready(function() {
         $('.info .toc-heading').remove();
         $('.info .toc').remove();
         
-        render_slider_panel();
         var css = $gd.get_setting('style');
         
         var default_transform = '.inner { transform: scale(1) translateX(-820px) translateY(-670px)';
@@ -38,9 +39,9 @@ jQuery(document).ready(function() {
         register_events();
         pinch_zoom(eid_inner);
 
-        var t = transform();
-        var x = $('.slider.translateX').val();
-        var y = $('.slider.translateY').val();
+        render_values('transforms');
+        var x = $('.info .slider.translatex input').val();
+        var y = $('.info .slider.translatey input').val();
         $('.inner').attr( 'data-x' , x );
         $('.inner').attr( 'data-y' , y );
         
@@ -96,43 +97,56 @@ jQuery(document).ready(function() {
         }
         
         function update_slider( name, value ) {
-            $('.slider.' + name).val(value);
-            $('.slider.' + name).attr('value', value);
+            name = name.toLowerCase();
+            $(`.slider.${name} input`).val(value);
+            $(`.slider.${name} input`).attr('value', value);
         }
-        
-        function render_slider_panel() {
-            var html = '<div class="sliders draggable panel">';
-            html += '<div id="titlebar"><h3>Transform</h3></div>';
-            html += create_slider('scale', 1, 0.1 ,6, 0.01);
-            html += create_slider('translateX', 0, -2000 ,2000, 1);
-            html += create_slider('translateY', 0, -2000 ,2000, 1);
-            
-            html += create_slider('perspective', 200, 0 ,2000, 1);
-            html += create_slider('rotateX', 0, 0 ,360, 1);
-            html += create_slider('rotateY', 0, 0 ,360, 1);
-            
-            html += create_slider('scaleZ', 0, 1 ,5, 0.1);
-            html += create_slider('rotateZ', 0, 0 ,360, 1);
-            html += create_slider('translateZ', 0, -500 ,500, 1);
-            html += '</div>';
-            $('#wrapper .container').append(html);
-        }
-        
-        function transform() {
-            var t = '';
-            $('.sliders .transform').each(function(){
-                // add key and value to t array
-                var name = $(this).attr('name');
-                var value = $(this).val();
-                var suffix = 'px';
-                if ( name.indexOf('scale') != -1 ) {
-                    suffix = '';
-                } else if ( name.indexOf('rotate') != -1 ) {
-                    suffix = 'deg';
-                }
-                t += ' ' + name + '(' + value + suffix + ')';
+
+        function render_values(v) {
+            var f = '';
+            $filters = $(`.info .collapsible.${v} .field.slider`);
+            $filters.each(function(){
+                var $i = $(this).find('input');
+                var name = $i.attr('name');
+                var value = $i.val();
+                var suffix = $i.attr('data-suffix');
+                if ( suffix === undefined ) suffix = '';
+                f += `${name}(${value}${suffix}) `;
             });
-            $(eid_inner).css( 'transform', t );
+            if ( v === 'filters' ) {
+                //var svg_filter = '';
+                var svg = $('.info .field.select.svg_filter select').val();
+                if ( svg != 'none' ) {
+                    console.log(svg);
+                    var splt = svg.split('-');
+                    svg = splt[splt.length - 1];
+                    console.log(svg);
+                    f += `url("filters.svg#${svg}")`;
+                }
+                $('.fx').css( 'filter', f );
+            } else if ( v === 'transforms' ) {
+                $(eid_inner).css( 'transform', f );
+            }
+        }
+
+        function extract_svg( filename ) {
+            $.get( filename, function(data) {
+                // add svg filters to body
+                var div = document.createElement("div");
+                div.id = 'svg';
+                div.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
+                document.body.insertBefore(div, document.body.childNodes[0]);
+
+                var $select = $('.info .field.select.svg_filter select');
+                if ( $select.length > 0 ) {
+                    // $select exists, so lets add the imported filters
+                    $('#svg defs filter').each(function() {
+                        var id = $(this).attr('id');
+                        var name = $(this).attr('inkscape:label');
+                        $select.append(`<option>${name}-${id}</option>`);
+                    });
+                }
+            });
         }
         
         function register_events() {
@@ -151,17 +165,22 @@ jQuery(document).ready(function() {
             });
 
             // add click event to sliders
-            $('.slider').on('input change', function(e) {
-                var name = $(this).attr('name');
-                var value = $(this).val();
-                $(this).attr('value', value);
-                transform();
+            $('.info .field.slider input').on('input change', function(e) {
+                var $p = $(this).closest('.collapsible');
+                if ( $p.hasClass('filters') ) {
+                    render_values('filters');
+                } else if ( $p.hasClass('transforms') ) {
+                    render_values('transforms');
+                }
             });
-            
+
+            $('.info .field.select.svg_filter select').change(function() {
+                render_values('filters');
+            });
+
             // mousewheel zoom handler
             $('.inner').on('wheel', function(e){
-                var v = Number( $('.slider.translateZ').val() );
-                console.log(v);
+                var v = Number( $('.info .slider.translatez input').val() );
                 if(e.originalEvent.deltaY < 0) {
                     v += 5;
                     if ( v > 500 ) v = 500;
@@ -170,24 +189,8 @@ jQuery(document).ready(function() {
                     if ( v < -500 ) v = -500;
                 }
                 update_slider( 'translateZ', v );
-                transform();
+                render_values('transforms');
             });
-        }
-        
-        // returns html for slider and input paired with css class c
-        function create_slider(name, value, min, max, step) {
-            var html = '<input class="slider transform ';
-            // add transform class to items that are part of transform attribute
-            var t = ['scale','rotate','translate','skew','perspective'];
-            for ( var i = 0; i < t.length; i++ ) {
-                if ( name.indexOf(t[i]) != -1 ) html += ' ' + name;
-            }
-            html += '"';
-            html += 'name="' + name + '" ';
-            html += 'type="range" min="' + min;
-            html += '" max="' + max + '" value="' + value;
-            html += '" step="' + step + '">';
-            return html;
         }
         
         // target elements with the "draggable" class
@@ -226,7 +229,7 @@ jQuery(document).ready(function() {
             if ( $target.hasClass('inner') ) {
                 update_slider( 'translateX', x );
                 update_slider( 'translateY', y );
-                transform();
+                render_values('transforms');
             } else {
                 // translate the element
                 target.style.webkitTransform =

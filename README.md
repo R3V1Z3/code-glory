@@ -122,5 +122,36 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 - Xt 256
 - Zenburn
 
+<!-- {$gd_collapsible_transforms} -->
+
+- <!-- {$gd_slider_scale="1,0.1,6,0.01"} -->
+- <!-- {$gd_slider_translateX="0,-2000,2000,1,px"} -->
+- <!-- {$gd_slider_translateY="0,-2000,2000,1,px"} -->
+- <!-- {$gd_slider_perspective="200,0,2000,1,px"} -->
+- <!-- {$gd_slider_rotateX="0,0,360,1,deg"} -->
+- <!-- {$gd_slider_rotateY="0,0,360,1,deg"} -->
+- <!-- {$gd_slider_scaleZ="0,1,5,0.1"} -->
+- <!-- {$gd_slider_rotateZ="0,0,360,1,deg"} -->
+- <!-- {$gd_slider_translateZ="0,-500,500,1,px"} -->
+
+<!-- {$gd_collapsible_end_transforms} -->
+
+<!-- {$gd_collapsible_filters} -->
+
+- <!-- {$gd_slider_blur="0,0,20,1,px"} -->
+- <!-- {$gd_slider_brightness="1,0,3,0.1"} -->
+- <!-- {$gd_slider_contrast="100,0,300,1,%"} -->
+- <!-- {$gd_slider_grayscale="0,0,100,1,%"} -->
+- <!-- {$gd_slider_hue-rotate="0,0,360,1,deg"} -->
+- <!-- {$gd_slider_invert="0,0,100,1,%"} -->
+- <!-- {$gd_slider_saturate="100,0,300,1,%"} -->
+- <!-- {$gd_slider_sepia="0,0,100,1,%"} -->
+
+<!-- {$gd_collapsible_end_filters} -->
+
+<!-- {$gd_select_svg_filter} -->
+- None
+
+
 <!-- {$gd_toc="Table of Contents"} -->
 <!-- {$gd_hide} -->
