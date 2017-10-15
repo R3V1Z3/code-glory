@@ -1,4 +1,6 @@
-/* global jQuery, $, interact */
+var default_transform;
+var eid_inner = '.inner';
+
 jQuery(document).ready(function() {
 
     // attach the plugin to an element
@@ -12,8 +14,6 @@ jQuery(document).ready(function() {
     var $gd = $('#wrapper').data('gitdown');
     
     function main() {
-        
-        var eid_inner = '.inner';
 
         extract_svg('filters.svg');
 
@@ -26,7 +26,7 @@ jQuery(document).ready(function() {
         
         var css = $gd.get_setting('style');
         
-        var default_transform = '.inner { transform: scale(1) translateX(-820px) translateY(-670px)';
+        default_transform = '.inner { transform: scale(1) translateX(-820px) translateY(-670px)';
         default_transform += ' perspective(280px) rotateX(350deg) rotateY(3deg)';
         default_transform += ' scaleZ(1) rotateZ(342deg) translateZ(0px)};';
         
@@ -37,28 +37,13 @@ jQuery(document).ready(function() {
         
         get_transforms(css);
         register_events();
-        pinch_zoom(eid_inner);
 
-        render_values('transforms');
+        render_values(true);
         var x = $('.info .slider.translatex input').val();
         var y = $('.info .slider.translatey input').val();
         $('.inner').attr( 'data-x' , x );
         $('.inner').attr( 'data-y' , y );
-        
-        function pinch_zoom( element ) {
-            var scale = Number( $('.slider.scale').val() );
-            interact(element)
-            .gesturable({
-                onmove: function (event) {
-                    scale = scale * (1 + event.ds);
-                    // update inner with new scale
-                    update_slider( 'scale', scale );
-                    dragMoveListener(event);
-                    transform();
-                }
-            })
-            .draggable({ onmove: dragMoveListener });
-        }
+    }
         
         function get_transforms(css) {
             if ( css != '' ) {
@@ -102,8 +87,11 @@ jQuery(document).ready(function() {
             $(`.slider.${name} input`).attr('value', value);
         }
 
-        function render_values(v) {
+        // t = true when rendering transforms
+        function render_values(t) {
             var f = '';
+            var v = 'filters';
+            if (t) v = 'transforms';
             $filters = $(`.info .collapsible.${v} .field.slider`);
             $filters.each(function(){
                 var $i = $(this).find('input');
@@ -114,14 +102,11 @@ jQuery(document).ready(function() {
                 f += `${name}(${value}${suffix}) `;
             });
             if ( v === 'filters' ) {
-                //var svg_filter = '';
                 var svg = $('.info .field.select.svg_filter select').val();
                 if ( svg != 'none' ) {
-                    console.log(svg);
                     var splt = svg.split('-');
                     svg = splt[splt.length - 1];
-                    console.log(svg);
-                    f += `url("filters.svg#${svg}")`;
+                    f += `url("#${svg}")`;
                 }
                 $('.fx').css( 'filter', f );
             } else if ( v === 'transforms' ) {
@@ -168,14 +153,14 @@ jQuery(document).ready(function() {
             $('.info .field.slider input').on('input change', function(e) {
                 var $p = $(this).closest('.collapsible');
                 if ( $p.hasClass('filters') ) {
-                    render_values('filters');
+                    render_values(false);
                 } else if ( $p.hasClass('transforms') ) {
-                    render_values('transforms');
+                    render_values(true);
                 }
             });
 
             $('.info .field.select.svg_filter select').change(function() {
-                render_values('filters');
+                render_values(false);
             });
 
             // mousewheel zoom handler
@@ -189,61 +174,72 @@ jQuery(document).ready(function() {
                     if ( v < -500 ) v = -500;
                 }
                 update_slider( 'translateZ', v );
-                render_values('transforms');
+                render_values(true);
             });
-        }
-        
-        // target elements with the "draggable" class
-        interact('.draggable').allowFrom('#titlebar')
-            .draggable({
-                // enable inertial throwing
-                inertia: false,
-                // keep the element within the area of it's parent
-                restrict: {
-                  restriction: "parent",
-                  endOnly: true,
-                  elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
-            },
-            // enable autoScroll
-            autoScroll: true,
+
+            interact(eid_inner)
+            .gesturable({
+                onmove: function (event) {
+                    var scale = Number( $('.info .slider.translatez input').val() );
+                    scale = scale * (1 + event.ds);
+                    // update inner with new scale
+                    update_slider( 'translateZ', scale );
+                    dragMoveListener(event);
+                }
+            })
+            .draggable({ onmove: dragMoveListener });
             
-            // call this function on every dragmove event
-            onmove: dragMoveListener,
-            // call this function on every dragend event
-            onend: function (event) {
-              var textEl = event.target.querySelector('p');
+            // target elements with the "draggable" class
+            interact('.draggable').allowFrom('#titlebar')
+                .draggable({
+                    // enable inertial throwing
+                    inertia: false,
+                    // keep the element within the area of it's parent
+                    restrict: {
+                      restriction: "parent",
+                      endOnly: true,
+                      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+                },
+                // enable autoScroll
+                autoScroll: true,
+                
+                // call this function on every dragmove event
+                onmove: dragMoveListener,
+                // call this function on every dragend event
+                onend: function (event) {
+                  var textEl = event.target.querySelector('p');
+                
+                  textEl && (textEl.textContent =
+                    'moved a distance of '
+                    + (Math.sqrt(event.dx * event.dx +
+                                 event.dy * event.dy)|0) + 'px');
+            }
+            });
             
-              textEl && (textEl.textContent =
-                'moved a distance of '
-                + (Math.sqrt(event.dx * event.dx +
-                             event.dy * event.dy)|0) + 'px');
-        }
-        });
-        
-        function dragMoveListener (event) {
-            var target = event.target;
-            var $target = $(target);
-            var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-            var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-            
-            if ( $target.hasClass('inner') ) {
-                update_slider( 'translateX', x );
-                update_slider( 'translateY', y );
-                render_values('transforms');
-            } else {
-                // translate the element
-                target.style.webkitTransform =
-                target.style.transform =
-                  'translate(' + x + 'px, ' + y + 'px)';
+            function dragMoveListener (event) {
+                var target = event.target;
+                var $target = $(target);
+                var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+                
+                if ( $target.hasClass('inner') ) {
+                    update_slider( 'translateX', x );
+                    update_slider( 'translateY', y );
+                    render_values(true);
+                } else {
+                    // translate the element
+                    target.style.webkitTransform =
+                    target.style.transform =
+                      'translate(' + x + 'px, ' + y + 'px)';
+                }
+                
+                // update the position attributes
+                target.setAttribute('data-x', x);
+                target.setAttribute('data-y', y);
             }
             
-            // update the position attributes
-            target.setAttribute('data-x', x);
-            target.setAttribute('data-y', y);
+            // this is used later in the resizing and gesture demos
+            window.dragMoveListener = dragMoveListener;
         }
-        
-        // this is used later in the resizing and gesture demos
-        window.dragMoveListener = dragMoveListener;
-    }
     
 });
