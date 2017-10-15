@@ -1,6 +1,6 @@
-# Code Glorify
+# Code Glory
 
-Glorify your code ala Instacod.es but using GitHub Gists and CSS effects.
+You've prettified your code, now make it glorious with CSS effects and SVG filters. Code Glory lets you easily add gorgeous effects to your code, no download needed.
 
 ## Usage
 
@@ -8,10 +8,10 @@ Simply post your code for free on Github Gist, get the Gist ID and enter it in t
 
 Click and drag to move the code section around on the rendered page.
 
-Code Glorify uses highlight.js for syntax coloring. As a result, numerous color themes are available, accessible here using the style parameter.
+Code Glory uses highlight.js for syntax coloring. As a result, numerous color themes are available, accessible here using the style parameter.
 
 Add a style parameter like so:
-https://ugotsta.github.io/code-glorify/?gist=9787981&style=monokai
+https://ugotsta.github.io/code-glory/?gist=9787981&style=monokai
 
 For more info on the highlight styles, see: https://highlightjs.org/
 

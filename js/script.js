@@ -4,7 +4,7 @@ var eid_inner = '.inner';
 jQuery(document).ready(function() {
 
     // attach the plugin to an element
-    $('#wrapper').gitdown( {'title': 'Code Glorify',
+    $('#wrapper').gitdown( {'title': 'Code Glory',
                             'content': 'README.md',
                             'markdownit': 'false',
                             'merge_gists': false,
