@@ -15,7 +15,11 @@ https://ugotsta.github.io/code-glory/?gist=9787981&style=monokai
 
 For more info on the highlight styles, see: https://highlightjs.org/
 
-# Examples <!-- {$gd_info} -->
+## Full Examples
+
+- [Wood Vim Engraved](?svg-filter=Bump+Engraving-filter53&highlight=agate&translatex=-1010&translatey=-895&vignette=1&css=c05dec491e954e53e050c6e9d60d7a25&brightness=0.9&contrast=160&hue-rotate=0&invert=0&rotatex=0&translatez=-273&fontsize=181&gist=5611986&font=fira-mono&rotatez=0&rotatey=357&perspective=269&saturate=141&sepia=0)
+
+## Examples <!-- {$gd_info} -->
 <!-- {$gd_help_ribbon} -->
 
 Make your code glorious
@@ -23,6 +27,7 @@ Make your code glorious
 Examples Gists <!-- {$gd_gist} -->
 - [Cogito ergo sum](https://gist.github.com/1afacb7b662cfbfd0624e52c6425ceee)
 - [Vim logo](https://gist.github.com/5611986)
+- [querySelector.js](https://gist.github.com/AllThingsSmitty/f9029e6236a7c2a03203)
 - [Play Nethack Alt](https://gist.github.com/66f1f3786beb72f03c5b461519081764)
 - [WP disable jQuery Migrate](https://gist.github.com/chuckreynolds/f7f108880a1c8e674efc229245d93b09)
 - [String-reverse.js](https://gist.github.com/nilz3ro/ff9e36538de06b6a0b40a96252d58dc5)
@@ -34,7 +39,7 @@ Examples Gists <!-- {$gd_gist} -->
 Themes <!-- {$gd_css} -->
 
 Font <!-- {$gd_select_font} -->
-- Anonymous Pro
+- *Anonymous Pro
 - Cousine
 - Cutive Mono
 - Fira Mono
@@ -48,7 +53,7 @@ Font <!-- {$gd_select_font} -->
 Highlight Styles <!-- {$gd_select_highlight} -->
 - None
 - Default
-- Agate
+- *Agate
 - Androidstudio
 - Arduino Light
 - Arta
@@ -148,8 +153,15 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 
 <!-- {$gd_collapsible_end_filters} -->
 
+<!-- {$gd_collapsible_extras} -->
+
+<!-- {$gd_slider_fontsize="110,50,300,1,%"} -->
+<!-- {$gd_slider_vignette="0.7,0,1,0.025"} -->
+
+<!-- {$gd_collapsible_end_extras} -->
+
 <!-- {$gd_select_svg-filter} -->
-- None
+- *None
 
 <!-- {$gd_toc="Table of Contents"} -->
 <!-- {$gd_hide} -->

@@ -21,6 +21,10 @@ jQuery(document).ready(function() {
 
         // wrap .inner with an fx div
         $(eid_inner).wrap('<div class="fx">');
+        // add vignette div
+        $('.fx').append('<div class="vignette"></div>');
+        var v = $('.info .field.slider.vignette input').val();
+        vignette(v);
 
         // won't need toc at all, remove it
         $('.info .toc-heading').remove();
@@ -49,6 +53,16 @@ jQuery(document).ready(function() {
         // everything loaded, now calculate url params
         $gd.parse_params();
         render_values(true);
+    }
+
+    function vignette(v) {
+        var bg = `radial-gradient(ellipse at center,`;
+        bg += `rgba(0,0,0,0) 0%,`;
+        bg += `rgba(0,0,0,${v/6}) 30%,`;
+        bg += `rgba(0,0,0,${v/3}) 60%,`;
+        bg += `rgba(0,0,0,${v}) 100%)`;
+        var s = '';
+        $('.fx .vignette').css( 'background', bg );
     }
 
     function extract_svg(filename) {
@@ -162,6 +176,12 @@ jQuery(document).ready(function() {
             // now lets add the font to the section elements
             font = font.replace( /\+/g, ' ' );
             $('.inner .section *').css({ fontFamily : font });
+        });
+
+        // vignette effect
+        $('.info .field.slider.vignette input').on('input change', function(e) {
+            var v = $(this).val();
+            vignette(v);
         });
 
         // add click event to sliders
