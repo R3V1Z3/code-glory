@@ -22,7 +22,7 @@ For more info on the highlight styles, see: https://highlightjs.org/
 ## Examples <!-- {$gd_info} -->
 <!-- {$gd_help_ribbon} -->
 
-Make your code glorious
+Thy code made glorious
 
 Examples Gists <!-- {$gd_gist} -->
 - [Cogito ergo sum](https://gist.github.com/1afacb7b662cfbfd0624e52c6425ceee)
@@ -36,17 +36,21 @@ Examples Gists <!-- {$gd_gist} -->
 - [Backdrop Drop](https://gist.github.com/9ef934473e4cf4d50d8b06d2598b24d1)
 - [jQuery template](https://gist.github.com/mediaash/7983499)
 
+<!-- {$gd_collapsible_theme} -->
+
 Themes <!-- {$gd_css} -->
 
+<!-- {$gd_slider_fontsize="110,50,300,1,%"} -->
+
 Font <!-- {$gd_select_font} -->
-- *Anonymous Pro
+- Anonymous Pro
 - Cousine
 - Cutive Mono
 - Fira Mono
 - Nova Mono
 - Overpass Mono
 - Oxygen Mono
-- Share Tech Mono
+- *Share Tech Mono
 - Space Mono
 - Ubuntu Mono
 
@@ -126,7 +130,9 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 - Xcode
 - Zenburn
 
-<!-- {$gd_collapsible_transforms} -->
+<!-- {$gd_collapsible_end_theme} -->
+
+<!-- {$gd_collapsible_perspective} -->
 
 - <!-- {$gd_slider_scale="1,0.1,6,0.01"} -->
 - <!-- {$gd_slider_translateX="0,-2000,2000,1,px"} -->
@@ -138,11 +144,16 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 - <!-- {$gd_slider_rotateZ="0,0,360,1,deg"} -->
 - <!-- {$gd_slider_translateZ="0,-500,500,1,px"} -->
 
-<!-- {$gd_collapsible_end_transforms} -->
+<!-- {$gd_collapsible_end_perspective} -->
 
-<!-- {$gd_collapsible_filters} -->
+<!-- {$gd_collapsible_effects} -->
 
-- <!-- {$gd_slider_blur="0,0,20,1,px"} -->
+<!-- {$gd_select_svg-filter} -->
+- *None
+
+-----
+
+- <!-- {$gd_slider_vignette="1,0,1,0.025"} -->
 - <!-- {$gd_slider_brightness="1,0,3,0.1"} -->
 - <!-- {$gd_slider_contrast="100,0,300,1,%"} -->
 - <!-- {$gd_slider_grayscale="0,0,100,1,%"} -->
@@ -150,18 +161,9 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 - <!-- {$gd_slider_invert="0,0,100,1,%"} -->
 - <!-- {$gd_slider_saturate="100,0,300,1,%"} -->
 - <!-- {$gd_slider_sepia="0,0,100,1,%"} -->
+- <!-- {$gd_slider_blur="0,0,20,1,px"} -->
 
-<!-- {$gd_collapsible_end_filters} -->
-
-<!-- {$gd_collapsible_extras} -->
-
-<!-- {$gd_slider_fontsize="110,50,300,1,%"} -->
-<!-- {$gd_slider_vignette="0.7,0,1,0.025"} -->
-
-<!-- {$gd_collapsible_end_extras} -->
-
-<!-- {$gd_select_svg-filter} -->
-- *None
+<!-- {$gd_collapsible_end_effects} -->
 
 <!-- {$gd_toc="Table of Contents"} -->
 <!-- {$gd_hide} -->

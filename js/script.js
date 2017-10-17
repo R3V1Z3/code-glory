@@ -26,11 +26,15 @@ jQuery(document).ready(function() {
         var v = $('.info .field.slider.vignette input').val();
         vignette(v);
 
+        var h = $('.info .field.select.highlight select').change();
+
         // won't need toc at all, remove it
         $('.info .toc-heading').remove();
         $('.info .toc').remove();
         
         var css = $gd.get_setting('style');
+        var f = $( ' .info .field.font select' ).val();
+        update_font(f);
         
         default_transform = '.inner { transform: scale(1) translateX(-820px) translateY(-670px)';
         default_transform += ' perspective(280px) rotateX(350deg) rotateY(3deg)';
@@ -136,8 +140,8 @@ jQuery(document).ready(function() {
     // t = true when rendering transforms
     function render_values(t) {
         var f = '';
-        var v = 'filters';
-        if (t) v = 'transforms';
+        var v = 'effects';
+        if (t) v = 'perspective';
         $filters = $(`.info .collapsible.${v} .field.slider`);
         $filters.each(function(){
             var $i = $(this).find('input');
@@ -145,9 +149,9 @@ jQuery(document).ready(function() {
             var value = $i.val();
             var suffix = $i.attr('data-suffix');
             if ( suffix === undefined ) suffix = '';
-            f += `${name}(${value}${suffix}) `;
+            if ( name != 'vignette' ) f += `${name}(${value}${suffix}) `;
         });
-        if ( v === 'filters' ) {
+        if (!t) {
             var svg = $('.info .field.select.svg-filter select').val();
             var x = '';
             if ( svg === 'none' || svg === null ) {
@@ -156,11 +160,21 @@ jQuery(document).ready(function() {
                 svg = splt[splt.length - 1];
                 f += `url("#${svg}")`;
             }
-            //$('.inner').css( 'filter', x );
             $('.fx').css( 'filter', f );
-        } else if ( v === 'transforms' ) {
+        } else if (t) {
             $(eid_inner).css( 'transform', f );
         }
+    }
+
+    function update_font(f) {
+        f = f.replace( /\-/g, '+' );
+        // capitalize words
+        f = f.replace( /\b\w/g, l => l.toUpperCase() );
+        var link = `<link rel="stylesheet" href="//fonts.googleapis.com/css?family=${f}">`;
+        $('head').append(link);
+        // now lets add the font to the section elements
+        f = f.replace( /\+/g, ' ' );
+        $('.inner .section *').css({ fontFamily : f });
     }
     
     function register_events() {
@@ -168,14 +182,7 @@ jQuery(document).ready(function() {
         // set font based on user selection
         $( ' .info .field.font select' ).change(function() {
             var font = $(this).val();
-            font = font.replace( /\-/g, '+' );
-            // capitalize words
-            font = font.replace( /\b\w/g, l => l.toUpperCase() );
-            var link = `<link rel="stylesheet" href="//fonts.googleapis.com/css?family=${font}">`;
-            $('head').append(link);
-            // now lets add the font to the section elements
-            font = font.replace( /\+/g, ' ' );
-            $('.inner .section *').css({ fontFamily : font });
+            update_font(font);
         });
 
         // vignette effect
@@ -187,9 +194,9 @@ jQuery(document).ready(function() {
         // add click event to sliders
         $('.info .field.slider input').on('input change', function(e) {
             var $p = $(this).closest('.collapsible');
-            if ( $p.hasClass('filters') ) {
+            if ( $p.hasClass('effects') ) {
                 render_values(false);
-            } else if ( $p.hasClass('transforms') ) {
+            } else if ( $p.hasClass('perspective') ) {
                 render_values(true);
             }
         });
