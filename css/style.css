@@ -83,6 +83,10 @@ pre.hljs {
   content: unset;
 }
 
+.info .field.collapsible.presets li {
+  margin-bottom: 0.75em;
+}
+
 /* SLIDERS */
 
 #custom .sliders * {

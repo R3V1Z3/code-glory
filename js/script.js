@@ -167,14 +167,20 @@ jQuery(document).ready(function() {
     }
 
     function update_font(f) {
-        f = f.replace( /\-/g, '+' );
-        // capitalize words
-        f = f.replace( /\b\w/g, l => l.toUpperCase() );
-        var link = `<link rel="stylesheet" href="//fonts.googleapis.com/css?family=${f}">`;
-        $('head').append(link);
-        // now lets add the font to the section elements
-        f = f.replace( /\+/g, ' ' );
-        $('.inner .section *').css({ fontFamily : f });
+        // remove any existing font link
+        $('#gd-font').remove();
+        if ( f.toLowerCase() !== 'default' ) {
+            f = f.replace( /\-/g, '+' );
+            // capitalize words
+            f = f.replace( /\b\w/g, l => l.toUpperCase() );
+            var href = '//fonts.googleapis.com/css?family=' + f;
+            // create link
+            var link = `<link id="gd-font" rel="stylesheet" href="${href}">`;
+            $('head').append(link);
+            // now lets add the font to the section elements
+            f = f.replace( /\+/g, ' ' );
+            $('.inner .section *').css({ fontFamily : f });
+        }
     }
     
     function register_events() {

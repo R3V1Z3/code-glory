@@ -17,12 +17,6 @@ https://ugotsta.github.io/code-glory/?gist=9787981&style=monokai
 
 For more info on the highlight styles, see: https://highlightjs.org/
 
-## Full Examples
-
-- [Wood Vim Engraved](https://ugotsta.github.io/code-glory/?svg-filter=Bump+Engraving-filter53&highlight=agate&translatex=-1010&translatey=-895&vignette=1&css=c05dec491e954e53e050c6e9d60d7a25&brightness=0.9&contrast=160&hue-rotate=0&invert=0&rotatex=0&translatez=-273&fontsize=181&gist=5611986&font=fira-mono&rotatez=0&rotatey=357&perspective=269&saturate=141&sepia=0)
-- [Cogito l33t](https://ugotsta.github.io/code-glory/?highlight=arta&svg-filter=Neon-f038&translatex=-824&translatey=-685&gist=1afacb7b662cfbfd0624e52c6425ceee&translatez=105&font=cousine&brightness=0.7&hue-rotate=153&css=e9217f4e7ed7c8fa18f13d12def1ad6c&vignette=0.575&contrast=267&invert=0&fontsize=137)
-- [Silk Glory](https://ugotsta.github.io/code-glory/?highlight=atelier-cave-dark&svg-filter=Silk+Carpet-f053&translatex=4&translatey=-150&css=c05dec491e954e53e050c6e9d60d7a25&translatez=350&font=cousine&perspective=1163&rotatey=0&rotatez=339&rotatex=27&gist=83ccf018e834b68cfa1f8d33510642a7&fontsize=300&brightness=1.1&vignette=0&contrast=114&sepia=0&invert=100&hue-rotate=187&grayscale=32&saturate=116&scale=2.32)
-
 ## Examples <!-- {$gd_info} -->
 <!-- {$gd_help_ribbon} -->
 
@@ -47,6 +41,7 @@ Themes <!-- {$gd_css} -->
 <!-- {$gd_slider_fontsize="110,50,300,1,%"} -->
 
 Font <!-- {$gd_select_font} -->
+- *Default
 - Anonymous Pro
 - Cousine
 - Cutive Mono
@@ -54,7 +49,7 @@ Font <!-- {$gd_select_font} -->
 - Nova Mono
 - Overpass Mono
 - Oxygen Mono
-- *Share Tech Mono
+- Share Tech Mono
 - Space Mono
 - Ubuntu Mono
 
@@ -168,6 +163,14 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 - <!-- {$gd_slider_blur="0,0,20,1,px"} -->
 
 <!-- {$gd_collapsible_end_effects} -->
+
+<!-- {$gd_collapsible_presets} -->
+
+- [Wood Vim Engraved](?svg-filter=Bump+Engraving-filter53&highlight=agate&translatex=-1010&translatey=-895&vignette=1&css=c05dec491e954e53e050c6e9d60d7a25&brightness=0.9&contrast=160&hue-rotate=0&invert=0&rotatex=0&translatez=-273&fontsize=181&gist=5611986&font=fira-mono&rotatez=0&rotatey=357&perspective=269&saturate=141&sepia=0) - ASCII logo set on wood backdrop.
+- [Cogito l33t](?highlight=arta&svg-filter=Neon-f038&translatex=-824&translatey=-685&gist=1afacb7b662cfbfd0624e52c6425ceee&translatez=105&font=cousine&brightness=0.7&hue-rotate=153&css=e9217f4e7ed7c8fa18f13d12def1ad6c&vignette=0.575&contrast=267&invert=0&fontsize=137) -  Scanline effect with bloom-like filter.
+- [Silk Glory](?svg-filter=Silk+Carpet-f053&translatex=4&translatey=-150&css=c05dec491e954e53e050c6e9d60d7a25&translatez=350&perspective=1163&rotatey=0&rotatez=339&rotatex=27&gist=83ccf018e834b68cfa1f8d33510642a7&fontsize=300&brightness=1.1&vignette=0&contrast=114&sepia=0&invert=100&hue-rotate=187&grayscale=32&saturate=116&scale=2.32) - Silky,laminated wood theme.
+
+<!-- {$gd_collapsible_end_presets} -->
 
 <!-- {$gd_toc="Table of Contents"} -->
 <!-- {$gd_hide} -->
