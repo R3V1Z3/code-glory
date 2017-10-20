@@ -55,7 +55,7 @@ jQuery(document).ready(function() {
         $('.inner').attr( 'data-y' , y );
 
         // everything loaded, now calculate url params
-        $gd.parse_params();
+        $gd.update_fields();
         render_values(true);
     }
 
