@@ -16,21 +16,23 @@ jQuery(document).ready(function() {
     
     function main() {
 
+        // remove any existing svg ids
+        $('#svg').remove();
+        $('.info .toc-heading').remove();
+        $('.info .toc').remove();
+
         svg_filter = $gd.get_param('svg-filter');
         extract_svg('filters.svg');
 
         // wrap .inner with an fx div
-        $(eid_inner).wrap('<div class="fx">');
-        // add vignette div
-        $('.fx').append('<div class="vignette"></div>');
+        if ( $('.fx').length === 0 ) {
+            $(eid_inner).wrap('<div class="fx">');
+            $('.fx').append('<div class="vignette"></div>');
+        }
         var v = $('.info .field.slider.vignette input').val();
         vignette(v);
 
         var h = $('.info .field.select.highlight select').change();
-
-        // won't need toc at all, remove it
-        $('.info .toc-heading').remove();
-        $('.info .toc').remove();
         
         var css = $gd.get_setting('style');
         var f = $( ' .info .field.font select' ).val();
@@ -169,6 +171,7 @@ jQuery(document).ready(function() {
     function update_font(f) {
         // remove any existing font link
         $('#gd-font').remove();
+        if ( f === undefined || f === null ) f = 'default';
         if ( f.toLowerCase() !== 'default' ) {
             f = f.replace( /\-/g, '+' );
             // capitalize words
