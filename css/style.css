@@ -87,6 +87,11 @@ pre.hljs {
   margin-bottom: 0.75em;
 }
 
+.info .field.collapsible.presets .contents {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
 /* SLIDERS */
 
 #custom .sliders * {
