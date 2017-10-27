@@ -53,6 +53,16 @@ Font <!-- {$gd_select_font} -->
 - Space Mono
 - Ubuntu Mono
 
+<!-- {$gd_select_primary-color} -->
+- Default
+- Slategrey
+- Burlywood
+- Green
+- Magenta
+- Brown
+- Red
+- Dodgerblue
+
 Highlight Styles <!-- {$gd_select_highlight} -->
 - None
 - Default
