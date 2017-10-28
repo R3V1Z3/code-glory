@@ -29,6 +29,7 @@ jQuery(document).ready(function() {
             $(eid_inner).wrap('<div class="fx">');
             $('.fx').append('<div class="vignette"></div>');
         }
+        
         var v = $('.info .field.slider.vignette input').val();
         vignette(v);
 
@@ -162,7 +163,11 @@ jQuery(document).ready(function() {
                 svg = splt[splt.length - 1];
                 f += `url("#${svg}")`;
             }
-            $('.fx').css( 'filter', f );
+            
+            // todo: filter breaks on firefox, we'll hide it for now
+            if( navigator.userAgent.toLowerCase().indexOf('firefox') === -1 ){
+                $('.fx').css( 'filter', f );
+            }
         } else if (t) {
             $(eid_inner).css( 'transform', f );
         }
