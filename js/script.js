@@ -13,6 +13,7 @@ jQuery(document).ready(function() {
                             'callback': main,
                            } );
     var $gd = $('#wrapper').data('gitdown');
+    var eid = '#wrapper';
     
     function main() {
 
@@ -57,6 +58,17 @@ jQuery(document).ready(function() {
         $('.inner').attr( 'data-x' , x );
         $('.inner').attr( 'data-y' , y );
 
+        // include message for firefox users re: fx layer
+        if( navigator.userAgent.toLowerCase().indexOf('firefox') !== -1 ){
+            var fx_fields = document.querySelector( '.info .field.collapsible.effects .contents' );
+            if ( fx_fields !== null ) {
+                var message = 'Sorry, effects are currently disabled in Firefox due to technical hurdles. ';
+                var link = '<a href="https://alternativeto.net/software/ungoogled-chromium/">Ungoogled Chromium</a>';
+                message += `Please consider using a safe and modern alternative such as ${link}.`;
+                fx_fields.innerHTML = message;
+            }
+        }
+
         // everything loaded, now calculate url params
         $gd.update_fields();
         render_values(true);
@@ -69,7 +81,10 @@ jQuery(document).ready(function() {
         bg += `rgba(0,0,0,${v/3}) 60%,`;
         bg += `rgba(0,0,0,${v}) 100%)`;
         var s = '';
-        $('.fx .vignette').css( 'background', bg );
+        var vignette = document.querySelector( eid + ' .vignette' );
+        if ( vignette !== null ) {
+            vignette.style.backgroundImage = bg;
+        }
     }
 
     function extract_svg(filename) {
@@ -114,7 +129,7 @@ jQuery(document).ready(function() {
                 var value = v[i].split('(')[1].trim();
                 // remove closing paren )
                 value = Number(value.replace(/[^0-9\.\-]+/g,""));
-                update_slider( name, value );
+                update_slider_value( name, value );
             }
         }
     }
@@ -133,11 +148,11 @@ jQuery(document).ready(function() {
         return '';
     }
     
-    function update_slider( name, value ) {
+    function update_slider_value( name, value ) {
         name = name.toLowerCase();
-        var $slider = $(`.slider.${name} input`);
-        $slider.val(value);
-        $slider.attr( 'value', value );
+        var slider = document.querySelector( `.info .slider.${name} input` );
+        slider.value = value;
+        slider.setAttribute( 'value', value );
     }
 
     // t = true when rendering transforms
@@ -230,7 +245,7 @@ jQuery(document).ready(function() {
                 v -= 5;
                 if ( v < -500 ) v = -500;
             }
-            update_slider( 'translateZ', v );
+            update_slider_value( 'translateZ', v );
             $translatez.change();
             render_values(true);
         });
@@ -242,7 +257,7 @@ jQuery(document).ready(function() {
                 var scale = Number( $translatez.val() );
                 scale = scale * (1 + event.ds);
                 // update inner with new scale
-                update_slider( 'translateZ', scale );
+                update_slider_value( 'translateZ', scale );
                 $translatez.change();
                 dragMoveListener(event);
             }
@@ -252,16 +267,17 @@ jQuery(document).ready(function() {
 
     function dragMoveListener (event) {
         var target = event.target;
-        var $target = $(target);
         var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
         var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
         
-        if ( $target.hasClass('inner') ) {
-            update_slider( 'translateX', x );
-            update_slider( 'translateY', y );
-            // send change event so sliders are updated
-            $('.info .slider.translatex input').change();
-            $('.info .slider.translatey input').change();
+        if ( target.classList.contains('inner') ) {
+            update_slider_value( 'translateX', x );
+            update_slider_value( 'translateY', y );
+            // send change event to sliders to update them visually
+            ['translatex', 'translatey'].forEach(function(e) {
+                document.querySelector( `.info .slider.${e} input` )
+                .dispatchEvent( new Event('change') );
+            });
             render_values(true);
         } else {
             // translate the element
