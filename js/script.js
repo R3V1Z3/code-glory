@@ -5,6 +5,7 @@ var svg_filter;
 const gd = new GitDown('#wrapper', {
     title: 'Code Glory',
     content: 'README.md',
+    markdownit: 'false',
     callback: done
 });
 
