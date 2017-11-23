@@ -9,7 +9,7 @@
   animation: none;
 }
 
-body, html, #wrapper, .container {
+body, html, #wrapper {
   position: absolute;
   overflow: hidden;
   height: 100%;

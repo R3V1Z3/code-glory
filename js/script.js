@@ -66,8 +66,9 @@ function done() {
     }
 
     // everything loaded, now calculate url params
-    gd.update_fields();
+    gd.update_fields_with_params();
     render_values(true);
+    console.log(gd.settings);
 }
 
 function vignette(v) {
