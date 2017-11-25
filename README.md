@@ -129,6 +129,8 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 - Xcode
 - Zenburn
 
+<!-- {$gd_theme_variables} -->
+
 <!-- {$gd_collapsible_end_theme} -->
 
 <!-- {$gd_collapsible_perspective} -->
@@ -178,5 +180,4 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 
 <!-- {$gd_collapsible_end_presets} -->
 
-<!-- {$gd_toc="Table of Contents"} -->
 <!-- {$gd_hide} -->
