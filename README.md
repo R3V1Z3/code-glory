@@ -154,7 +154,7 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 
 -----
 
-- <!-- {$gd_slider_vignette="1,0,1,0.025"} -->
+- <!-- {$gd_slider_vignette="0.5,0,1,0.025"} -->
 - <!-- {$gd_slider_brightness="1,0,3,0.1"} -->
 - <!-- {$gd_slider_contrast="100,0,300,1,%"} -->
 - <!-- {$gd_slider_grayscale="0,0,100,1,%"} -->
