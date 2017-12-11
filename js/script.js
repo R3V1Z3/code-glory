@@ -6,6 +6,7 @@ const gd = new GitDown('#wrapper', {
     title: 'Code Glory',
     content: 'README.md',
     markdownit: 'false',
+    merge_gists: true,
     callback: done
 });
 
@@ -68,7 +69,6 @@ function done() {
     // everything loaded, now calculate url params
     gd.update_fields_with_params();
     render_values(true);
-    console.log(gd.settings);
 }
 
 function vignette(v) {
@@ -146,7 +146,6 @@ function parse_for_transforms(css) {
 }
 
 function update_slider_value( name, value ) {
-    name = name.toLowerCase();
     var slider = document.querySelector( `.info .slider.${name} input` );
     slider.value = value;
     slider.setAttribute( 'value', value );
@@ -271,10 +270,10 @@ function dragMoveListener (event) {
         update_slider_value( 'translateX', x );
         update_slider_value( 'translateY', y );
         // send change event to sliders to update them visually
-        ['translatex', 'translatey'].forEach(function(e) {
-            document.querySelector( `.info .slider.${e} input` )
-            .dispatchEvent( new Event('change') );
-        });
+        // ['translatex', 'translatey'].forEach(function(e) {
+        //     document.querySelector( `.info .slider.${e} input` )
+        //     .dispatchEvent( new Event('change') );
+        // });
         render_values(true);
     } else {
         // translate the element

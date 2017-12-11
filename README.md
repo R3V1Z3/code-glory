@@ -135,15 +135,23 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 
 <!-- {$gd_collapsible_perspective} -->
 
-- <!-- {$gd_slider_scale="1,0.1,6,0.01"} -->
-- <!-- {$gd_slider_translateX="0,-2000,2000,1,px"} -->
-- <!-- {$gd_slider_translateY="0,-2000,2000,1,px"} -->
-- <!-- {$gd_slider_perspective="200,0,2000,1,px"} -->
-- <!-- {$gd_slider_rotateX="0,0,360,1,deg"} -->
-- <!-- {$gd_slider_rotateY="0,0,360,1,deg"} -->
-- <!-- {$gd_slider_scaleZ="0,1,5,0.1"} -->
-- <!-- {$gd_slider_rotateZ="0,0,360,1,deg"} -->
-- <!-- {$gd_slider_translateZ="0,-500,500,1,px"} -->
+<!-- {$gd_slider_scale="1,0.1,6,0.01"} -->
+
+<!-- {$gd_slider_translateX="0,-2000,2000,1,px"} -->
+
+<!-- {$gd_slider_translateY="0,-2000,2000,1,px"} -->
+
+<!-- {$gd_slider_perspective="200,0,2000,1,px"} -->
+
+<!-- {$gd_slider_rotateX="0,0,360,1,deg"} -->
+
+<!-- {$gd_slider_rotateY="0,0,360,1,deg"} -->
+
+<!-- {$gd_slider_scaleZ="0,1,5,0.1"} -->
+
+<!-- {$gd_slider_rotateZ="0,0,360,1,deg"} -->
+
+<!-- {$gd_slider_translateZ="0,-500,500,1,px"} -->
 
 <!-- {$gd_collapsible_end_perspective} -->
 
@@ -154,20 +162,29 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 
 -----
 
-- <!-- {$gd_slider_vignette="0.5,0,1,0.025"} -->
-- <!-- {$gd_slider_brightness="1,0,3,0.1"} -->
-- <!-- {$gd_slider_contrast="100,0,300,1,%"} -->
-- <!-- {$gd_slider_grayscale="0,0,100,1,%"} -->
-- <!-- {$gd_slider_hue-rotate="0,0,360,1,deg"} -->
-- <!-- {$gd_slider_invert="0,0,100,1,%"} -->
-- <!-- {$gd_slider_saturate="100,0,300,1,%"} -->
-- <!-- {$gd_slider_sepia="0,0,100,1,%"} -->
-- <!-- {$gd_slider_blur="0,0,20,1,px"} -->
+<!-- {$gd_slider_vignette="0.5,0,1,0.025"} -->
+
+<!-- {$gd_slider_brightness="1,0,3,0.1"} -->
+
+<!-- {$gd_slider_contrast="100,0,300,1,%"} -->
+
+<!-- {$gd_slider_grayscale="0,0,100,1,%"} -->
+
+<!-- {$gd_slider_hue-rotate="0,0,360,1,deg"} -->
+
+<!-- {$gd_slider_invert="0,0,100,1,%"} -->
+
+<!-- {$gd_slider_saturate="100,0,300,1,%"} -->
+
+<!-- {$gd_slider_sepia="0,0,100,1,%"} -->
+
+<!-- {$gd_slider_blur="0,0,20,1,px"} -->
 
 <!-- {$gd_collapsible_end_effects} -->
 
 <!-- {$gd_collapsible_presets} -->
 
+Ready-made templates:
 - [Wood Vim Engraved](?svg-filter=Bump+Engraving-filter53&highlight=agate&translatex=-1010&translatey=-895&vignette=1&css=e9dc237da3d9bda63302fe4b659c20b5&brightness=0.9&contrast=160&hue-rotate=0&invert=0&rotatex=0&translatez=-273&fontsize=181&gist=5611986&font=fira-mono&rotatez=0&rotatey=357&perspective=269&saturate=141&sepia=0) - High contrast ASCII set on wood backdrop.
 - [Invert](?highlight=none&font=share-tech-mono&gist=95beb4892f95a5945da54a069ee47b10&translatex=-203&translatey=-416&css=ece15baa3b80cd95bc0b7a0a2b5a24bd&vignette=1&contrast=200&rotatez=8&translatez=115&perspective=2000&brightness=0.8&hue-rotate=75&saturate=133&blur=0&fontsize=91&scale=1.95&sepia=0&invert=100) - Bright, high-tech theme for the inverts.
 - [The Digital Plain](?highlight=none&font=fira-mono&primary-color=default&perspective=291&translatex=-916&translatey=-872&translatez=-15&css=a634da7b7130fd40d682360154cc4e2e&brightness=0.8&contrast=200&hue-rotate=279&rotatex=24&gist=9ef934473e4cf4d50d8b06d2598b24d1&vignette=0.125&rotatez=342) - Seeminly endless plain of digital beauty.
