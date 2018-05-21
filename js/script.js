@@ -38,8 +38,8 @@ function done() {
     update_font(f);
     
     default_transform = '.inner { transform: scale(1) translateX(-820px) translateY(-670px)';
-    default_transform += ' perspective(280px) rotateX(350deg) rotateY(3deg)';
-    default_transform += ' scaleZ(1) rotateZ(342deg) translateZ(0px)};';
+    default_transform += ' perspective(300px) rotateX(15deg) rotateY(3deg)';
+    default_transform += ' scaleZ(1) rotateZ(10deg) translateZ(0px)};';
     
     // setup default transform if no user provided css
     if ( css === '' ) {
@@ -65,6 +65,9 @@ function done() {
             fx_fields.innerHTML = message;
         }
     }
+
+    $('.code-overlay').show();
+    tiltshift();
 
     // everything loaded, now calculate url params
     gd.update_fields_with_params();
@@ -202,6 +205,28 @@ function update_font(f) {
     }
 }
 
+function tiltshift() {
+    var ts = $('.info .field.select.tiltshift select').val().toLowerCase();
+    if ( ts === 'none' || ts === null ) {
+        $('.code').removeClass(function (index, css) {
+            return (css.match (/\btilt-\S+/g) || []).join(' ');
+        });
+        $('.code-overlay').removeClass(function (index, css) {
+            return (css.match (/\btilt-\S+/g) || []).join(' ');
+        });
+        console.log('none');
+    } else {
+        $('.code').removeClass(function (index, css) {
+            return (css.match (/\btilt-\S+/g) || []).join(' ');
+        });
+        $('.code-overlay').removeClass(function (index, css) {
+            return (css.match (/\btilt-\S+/g) || []).join(' ');
+        });
+        $('.code').addClass('tilt-' + ts);
+        $('.code-overlay').addClass('tilt-' + ts);
+    }
+}
+
 function register_events() {
 
     // set font based on user selection
@@ -228,6 +253,10 @@ function register_events() {
 
     $('.info .field.select.svg-filter select').change(function() {
         render_values(false);
+    });
+
+    $('.info .field.select.tiltshift select').change(function() {
+        tiltshift();
     });
 
     // mousewheel zoom handler

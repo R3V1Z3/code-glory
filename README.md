@@ -41,9 +41,9 @@ Themes <!-- {$gd_css} -->
 <!-- {$gd_slider_fontsize="110,50,300,1,%"} -->
 
 Font <!-- {$gd_select_font} -->
-- *Default
+- Default
 - Anonymous Pro
-- Cousine
+- *Cousine
 - Cutive Mono
 - Fira Mono
 - Nova Mono
@@ -56,7 +56,7 @@ Font <!-- {$gd_select_font} -->
 Highlight Styles <!-- {$gd_select_highlight} -->
 - None
 - Default
-- *Agate
+- Agate
 - Androidstudio
 - Arduino Light
 - Arta
@@ -95,7 +95,7 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 - Googlecode
 - Grayscale
 - Gruvbox Dark
-- Gruvbox Light
+- *Gruvbox Light
 - Hopscotch
 - Hybrid
 - Idea
@@ -156,6 +156,11 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 <!-- {$gd_collapsible_end_perspective} -->
 
 <!-- {$gd_collapsible_effects} -->
+
+<!-- {$gd_select_tiltshift} -->
+- None
+- *Elegant
+- Extreme
 
 <!-- {$gd_select_svg-filter} -->
 - *None
