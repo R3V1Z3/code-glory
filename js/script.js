@@ -50,10 +50,10 @@ function done() {
     register_events();
 
     render_values(true);
-    var x = $('.info .slider.translatex input').val();
-    var y = $('.info .slider.translatey input').val();
-    $('.inner').attr( 'data-x' , x );
-    $('.inner').attr( 'data-y' , y );
+    var x = $('.info .slider.translateX input').val();
+    var y = $('.info .slider.translateY input').val();
+    $(eid_inner).attr( 'data-x' , x );
+    $(eid_inner).attr( 'data-y' , y );
 
     // include message for firefox users re: fx layer
     if( navigator.userAgent.toLowerCase().indexOf('firefox') !== -1 ){
@@ -232,7 +232,7 @@ function register_events() {
 
     // mousewheel zoom handler
     $('.inner').on('wheel', function(e){
-        var $translatez = $('.info .slider.translatez input');
+        var $translatez = $('.info .slider.translateZ input');
         var v = Number( $translatez.val() );
         if(e.originalEvent.deltaY < 0) {
             v += 5;
