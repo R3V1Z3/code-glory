@@ -6,7 +6,7 @@ const gd = new GitDown('#wrapper', {
     title: 'Code Glory',
     content: 'README.md',
     markdownit: 'false',
-    merge_gists: true,
+    merge_gists: false,
     callback: done
 });
 
@@ -195,14 +195,28 @@ function update_font(f) {
         f = f.replace( /\-/g, '+' );
         // capitalize words
         f = f.replace( /\b\w/g, l => l.toUpperCase() );
-        var href = '//fonts.googleapis.com/css?family=' + f;
-        // create link
-        var link = `<link id="gd-font" rel="stylesheet" href="${href}">`;
-        $('head').append(link);
+        f = f.replace( 'Iscript', 'iScript' );
+        f = f.replace( 'Ibm', 'IBM' );
+        f = f.replace( 'Pt+Mono', 'PT+Mono' );
+        f = f.replace( 'Vt323', 'VT323' );
+        if ( f === "Fira+Code+iScript") {
+            // 'Fira Code iScript'
+        } else if ( f === "Fira+Code") {
+            //
+        } else {
+            load_gfont(f);
+        }
         // now lets add the font to the section elements
         f = f.replace( /\+/g, ' ' );
         $('.inner .section *').css({ fontFamily : f });
     }
+}
+
+function load_gfont(f) {
+    const href = '//fonts.googleapis.com/css?family=' + f;
+    // create link
+    const link = `<link id="gd-font" rel="stylesheet" href="${href}">`;
+    $('head').append(link);
 }
 
 function tiltshift() {
@@ -214,7 +228,6 @@ function tiltshift() {
         $('.code-overlay').removeClass(function (index, css) {
             return (css.match (/\btilt-\S+/g) || []).join(' ');
         });
-        console.log('none');
     } else {
         $('.code').removeClass(function (index, css) {
             return (css.match (/\btilt-\S+/g) || []).join(' ');

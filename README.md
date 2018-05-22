@@ -42,16 +42,25 @@ Themes <!-- {$gd_css} -->
 
 Font <!-- {$gd_select_font} -->
 - Default
-- Anonymous Pro
-- *Cousine
-- Cutive Mono
+- *Fira Code iScript
+- Fira Code
 - Fira Mono
+- Roboto Mono
+- Inconsolata
+- IBM Plex Mono
+- Source Code Pro
+- VT323
+- PT Mono
+- Ubuntu Mono
+- Cousine
+- Nanum Gothic Coding
+- Space Mono
+- Anonymous Pro
+- Share Tech Mono
+- Oxygen Mono
+- Cutive Mono
 - Nova Mono
 - Overpass Mono
-- Oxygen Mono
-- Share Tech Mono
-- Space Mono
-- Ubuntu Mono
 
 Highlight Styles <!-- {$gd_select_highlight} -->
 - None

@@ -1,7 +1,24 @@
-@import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono|Cousine';
+@font-face{
+  font-family: 'Fira Code iScript';
+  src: url('https://cdn.rawgit.com/kencrocken/FiraCodeiScript/master/FiraCodeiScript-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face{
+  font-family: 'Fira Code iScript';
+  src: url('https://cdn.rawgit.com/kencrocken/FiraCodeiScript/master/FiraCodeiScript-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.205/distr/fira_code.css);
+@import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
 
-* {
-  font-family: 'Cousine', monospace;
+:root {
+  --bg-color: cornsilk;
+}
+
+.section * {
+  font-family: 'Fira Code iScript', monospace;
 }
 
 .info * {
@@ -11,7 +28,7 @@
 .inner {
   transition: none;
   animation: none;
-  background-color: #f8eec4;
+  background-color: var(--bg-color);
 }
 
 body {
