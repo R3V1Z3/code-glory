@@ -11,24 +11,21 @@
   font-style: italic;
 }
 @import url(https://cdn.rawgit.com/tonsky/FiraCode/1.205/distr/fira_code.css);
-@import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
 
 :root {
   --bg: cornsilk;
+  --fontsize: 100%;
 }
 
-.section * {
+* {
   font-family: 'Fira Code iScript', monospace;
-}
-
-.info * {
-  font-family: 'Share Tech Mono', monospace;
 }
 
 .inner {
   transition: none;
   animation: none;
   background-color: var(--bg);
+  font-size: var(--fontsize);
 }
 
 body, html, #wrapper {
@@ -103,6 +100,12 @@ pre.hljs {
 /* Info panel */
 .info {
   color: gray;
+}
+
+.info h2 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.75em;
 }
 
 .info .field.select {
