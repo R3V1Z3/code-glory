@@ -14,7 +14,7 @@
 @import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
 
 :root {
-  --bg-color: cornsilk;
+  --bg: cornsilk;
 }
 
 .section * {
@@ -28,11 +28,7 @@
 .inner {
   transition: none;
   animation: none;
-  background-color: var(--bg-color);
-}
-
-body {
-  background-color: black;
+  background-color: var(--bg);
 }
 
 body, html, #wrapper {
