@@ -37,8 +37,8 @@ function done() {
     var f = $( ' .info .field.font select' ).val();
     update_font(f);
     
-    default_transform = '.inner { transform: scale(1) translateX(-820px) translateY(-670px)';
-    default_transform += ' perspective(300px) rotateX(15deg) rotateY(3deg)';
+    default_transform = '.inner { transform: scale(1)';
+    default_transform += ' perspective(1500px) rotateX(15deg) rotateY(3deg)';
     default_transform += ' scaleZ(1) rotateZ(10deg) translateZ(0px)};';
     
     // setup default transform if no user provided css
@@ -50,8 +50,8 @@ function done() {
     register_events();
 
     render_values(true);
-    var x = $('.info .slider.translateX input').val();
-    var y = $('.info .slider.translateY input').val();
+    var x = $('.info .slider.offsetX input').val();
+    var y = $('.info .slider.offsetY input').val();
     $(eid_inner).attr( 'data-x' , x );
     $(eid_inner).attr( 'data-y' , y );
 
@@ -159,14 +159,17 @@ function render_values(t) {
     var f = '';
     var v = 'effects';
     if (t) v = 'perspective';
-    $filters = $(`.info .collapsible.${v} .field.slider`);
-    $filters.each(function(){
+    $fields = $(`.info .collapsible.${v} .field.slider`);
+    $fields.each(function(){
         var $i = $(this).find('input');
         var name = $i.attr('name');
         var value = $i.val();
         var suffix = $i.attr('data-suffix');
         if ( suffix === undefined ) suffix = '';
-        if ( name != 'vignette' ) f += `${name}(${value}${suffix}) `;
+        // add values of tranform sliders to f
+        if ( name != 'vignette' ) {
+            f += `${name}(${value}${suffix}) `;
+        }
     });
     if (!t) {
         var svg = $('.info .field.select.svg-filter select').val();
@@ -183,7 +186,28 @@ function render_values(t) {
             $('.fx').css( 'filter', f );
         }
     } else if (t) {
-        $(eid_inner).css( 'transform', f );
+        // center viewport
+        const e = document.querySelector( gd.eid );
+        const section = document.querySelector( gd.eid + ' .section');
+        let w = $('.info .field.slider.width input').val();
+        section.setAttribute("style", `width: ${w}px;`);
+        if ( e !== null ) {
+            //w = e.offsetWidth;
+            const h = e.offsetHeight;
+            const maxwidth = window.innerWidth;
+            const maxheight = window.innerHeight;
+
+            // calculate translateX and translateY based on offsets
+            const offsetX = $('.info .field.slider.offsetX input').val();
+            const offsetY = $('.info .field.slider.offsetY input').val();
+            const translateX = offsetX - (maxwidth) + w / 2;//x - (maxwidth / 2) + w / 2;
+            const translateY = offsetY - (maxheight);//y - (maxheight / 2) + h / 2;
+            
+            f += `translateX(${translateX}px) `;
+            f += `translateY(${translateY}px) `;
+
+            $(eid_inner).css( 'transform', f );
+        }
     }
 }
 
@@ -242,6 +266,10 @@ function tiltshift() {
 
 function register_events() {
 
+    window.addEventListener('resize', function(event){
+        render_values(true);
+    });
+
     // set font based on user selection
     $( ' .info .field.font select' ).change(function() {
         var font = $(this).val();
@@ -259,7 +287,7 @@ function register_events() {
         var $p = $(this).closest('.collapsible');
         if ( $p.hasClass('effects') ) {
             render_values(false);
-        } else if ( $p.hasClass('perspective') ) {
+        } else if ( $p.hasClass('perspective') || $p.hasClass('dimensions') ) {
             render_values(true);
         }
     });
@@ -284,7 +312,7 @@ function register_events() {
             if ( v < -500 ) v = -500;
         }
         update_slider_value( 'translateZ', v );
-        $translatez.change();
+        //$translatez.change();
         render_values(true);
     });
 
@@ -309,19 +337,21 @@ function dragMoveListener (event) {
     var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
     
     if ( target.classList.contains('inner') ) {
-        update_slider_value( 'translateX', x );
-        update_slider_value( 'translateY', y );
-        // send change event to sliders to update them visually
-        // ['translatex', 'translatey'].forEach(function(e) {
-        //     document.querySelector( `.info .slider.${e} input` )
-        //     .dispatchEvent( new Event('change') );
-        // });
+        update_slider_value( 'offsetX', x );
+        update_slider_value( 'offsetY', y );
+        var $offsetX = $('.info .slider.offsetX input');
+        var $offsetY = $('.info .slider.offsetY input');
+        $offsetX.change();
+        $offsetY.change();
         render_values(true);
     } else {
+        // update_slider_value( 'offsetX', x );
+        // update_slider_value( 'offsetY', y );
+
         // translate the element
-        target.style.webkitTransform =
-        target.style.transform =
-            'translate(' + x + 'px, ' + y + 'px)';
+        // target.style.webkitTransform =
+        // target.style.transform =
+        //     'translate(' + x + 'px, ' + y + 'px)';
     }
     
     // update the position attributes

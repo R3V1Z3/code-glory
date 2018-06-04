@@ -41,8 +41,8 @@ Examples Gists <!-- {$gd_gist} -->
 <!-- {$gd_collapsible_theme} -->
 
 Themes <!-- {$gd_css} -->
-
-<!-- {$gd_slider_fontsize="110,50,300,1,%"} -->
+- [Dark Glow](https://gist.github.com/c6d0a4d16b627d72563b43b60a164c31)
+- [Bevelled](https://gist.github.com/2db42669ad4101a680c5cdc79fe4daf8)
 
 Font <!-- {$gd_select_font} -->
 - Default
@@ -146,28 +146,6 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 
 <!-- {$gd_collapsible_end_theme} -->
 
-<!-- {$gd_collapsible_perspective} -->
-
-<!-- {$gd_slider_scale="1,0.1,6,0.01"} -->
-
-<!-- {$gd_slider_translateX="0,-2000,2000,1,px"} -->
-
-<!-- {$gd_slider_translateY="0,-2000,2000,1,px"} -->
-
-<!-- {$gd_slider_perspective="200,0,2000,1,px"} -->
-
-<!-- {$gd_slider_rotateX="0,0,360,1,deg"} -->
-
-<!-- {$gd_slider_rotateY="0,0,360,1,deg"} -->
-
-<!-- {$gd_slider_scaleZ="0,1,5,0.1"} -->
-
-<!-- {$gd_slider_rotateZ="0,0,360,1,deg"} -->
-
-<!-- {$gd_slider_translateZ="0,-500,500,1,px"} -->
-
-<!-- {$gd_collapsible_end_perspective} -->
-
 <!-- {$gd_collapsible_effects} -->
 
 <!-- {$gd_select_tiltshift} -->
@@ -182,7 +160,7 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 
 <!-- {$gd_slider_vignette="0.5,0,1,0.025"} -->
 
-<!-- {$gd_slider_brightness="1,0,3,0.1"} -->
+<!-- {$gd_slider_brightness="1,0,3,0.05"} -->
 
 <!-- {$gd_slider_contrast="100,0,300,1,%"} -->
 
@@ -200,17 +178,48 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 
 <!-- {$gd_collapsible_end_effects} -->
 
+<!-- {$gd_collapsible_perspective} -->
+
+<!-- {$gd_slider_scale="1,0.1,6,0.01"} -->
+
+<!-- {$gd_slider_perspective="1500,0,2000,1,px"} -->
+
+<!-- {$gd_slider_rotateX="0,0,360,1,deg"} -->
+
+<!-- {$gd_slider_rotateY="0,0,360,1,deg"} -->
+
+<!-- {$gd_slider_scaleZ="0,1,5,0.1"} -->
+
+<!-- {$gd_slider_rotateZ="0,0,360,1,deg"} -->
+
+<!-- {$gd_slider_translateZ="0,-500,500,1,px"} -->
+
+<!-- {$gd_collapsible_end_perspective} -->
+
+<!-- {$gd_collapsible_dimensions} -->
+
+<!-- {$gd_slider_width="800,200,4000,1,px"} -->
+
+<!-- {$gd_slider_padding="60,0,200,1,%"} -->
+
+<!-- {$gd_slider_offsetX="0,-4000,4000,1,px"} -->
+
+<!-- {$gd_slider_offsetY="0,-4000,4000,1,px"} -->
+
+<!-- {$gd_collapsible_end_dimensions} -->
+
 <!-- {$gd_collapsible_presets} -->
 
 Ready-made templates:
-- [Wood Vim Engraved](?svg-filter=Bump+Engraving-filter53&highlight=agate&translatex=-820&translatey=-670&vignette=1&css=e9dc237da3d9bda63302fe4b659c20b5&brightness=0.9&contrast=160&hue-rotate=0&invert=0&rotatex=15&translatez=0&gist=5611986&font=fira-mono&rotatez=10&rotatey=3&perspective=1514&saturate=141&sepia=0&scale=0.75&scalez=1&tiltshift=elegant&grayscale=0&blur=0&bg=cornsilk&rotateX=0&rotateY=337&rotateZ=0&translateZ=-500) - High contrast ASCII set on wood backdrop.
-- [The Digital Plain](?highlight=dracula&font=fira-code-iscript&primary-color=default&perspective=291&translatex=-820&translatey=-670&translatez=10&css=a634da7b7130fd40d682360154cc4e2e&brightness=0.8&contrast=200&hue-rotate=279&rotatex=15&gist=9ef934473e4cf4d50d8b06d2598b24d1&vignette=0.275&rotatez=338&scale=1&rotatey=3&scalez=1&tiltshift=elegant&saturate=100&bg=cornsilk&fontsize=100&rotateZ=338&translateZ=25) - Seeminly endless plain of digital beauty.
-- [Tech Glorious](?highlight=none&font=fira-mono&css=adc373c2d5a5d2b07821686e93a9630b&translatex=-602&translatey=14&gist=66f1f3786beb72f03c5b461519081764&fontsize=189&translatez=-155&perspective=492&rotatex=0&rotatez=0&brightness=1.2&contrast=295&hue-rotate=0&blur=0&sepia=0) - Another vibrant, futuristic tech theme.
-- [Scribbled Code](?highlight=arduino-light&font=default&translatex=-858&translatey=-738&css=77b1f66ad5093c2db29c666ad15f334d&gist=ff9e36538de06b6a0b40a96252d58dc5&translatez=215&perspective=691&vignette=0.175&rotatex=8&brightness=1&contrast=101&invert=0&sepia=28&hue-rotate=0&saturate=99) - Scribbled notes on aged graph paper.
-- [Cogito l33t](?highlight=arta&svg-filter=Neon-f038&translatex=-824&translatey=-685&gist=1afacb7b662cfbfd0624e52c6425ceee&translatez=105&font=cousine&brightness=0.7&hue-rotate=153&css=a634da7b7130fd40d682360154cc4e2e&vignette=0.575&contrast=267&invert=0&fontsize=137) -  Scanline effect with bloom-like filter.
-- [Laminated Glory](?svg-filter=Silk+Carpet-f053&translatex=4&translatey=-150&css=e9dc237da3d9bda63302fe4b659c20b5&translatez=350&perspective=1163&rotatey=0&rotatez=339&rotatex=27&gist=83ccf018e834b68cfa1f8d33510642a7&fontsize=300&brightness=1.1&vignette=0&contrast=114&sepia=0&invert=100&hue-rotate=187&grayscale=32&saturate=116&scale=2.32) - Silky,laminated wood up cloase.
-- [Deep Art](?highlight=xcode&font=anonymous-pro&svg-filter=Liquid+Drawing-f147&translatex=135&translatey=-484&css=ece15baa3b80cd95bc0b7a0a2b5a24bd&gist=95beb4892f95a5945da54a069ee47b10&translatez=470&contrast=105&brightness=0.7&hue-rotate=0&invert=0&sepia=46&blur=0&perspective=989&rotatex=13&rotatez=4&vignette=0.825) - Prisma-like filter for deep art styled code.
-- [High Contrast Mass](?highlight=vs&font=anonymous-pro&svg-filter=Posterized+Light+Eraser-filter451&translatex=-863&translatey=-767&translatez=80&css=d1a6d5621b883bf6af886855d853d502&gist=95beb4892f95a5945da54a069ee47b10&invert=100&hue-rotate=116&contrast=300&brightness=1.3&vignette=1&perspective=565&rotatex=2&rotatez=4&saturate=293&rotatey=18) - Massively posterized mess of high contrasts.
+- [Wood Vim Engraved](?svg-filter=Bump+Engraving-filter53&highlight=agate&vignette=1&css=e9dc237da3d9bda63302fe4b659c20b5&brightness=0.9&contrast=160&hue-rotate=0&invert=0&rotatex=0&translatez=-500&gist=5611986&font=fira-mono&rotatez=0&rotatey=337&perspective=675&saturate=141&sepia=0&scale=1.25&scalez=1&tiltshift=none&grayscale=0&blur=0&bg=cornsilk&rotateX=0&rotateY=356&rotateZ=2&translateZ=-298&width=613&padding=60&offsetx=0&offsety=0&fontsize=109&offsetX=-68&offsetY=-269) - High contrast ASCII set on wood backdrop.
+- [The Digital Plain](?highlight=dracula&primary-color=default&perspective=807&translatex=-820&css=a634da7b7130fd40d682360154cc4e2e&brightness=0.8&contrast=200&hue-rotate=279&rotatex=15&gist=9ef934473e4cf4d50d8b06d2598b24d1&vignette=0.275&rotatez=338&scale=1&rotatey=3&scalez=1&tiltshift=elegant&saturate=100&bg=cornsilk&fontsize=100&rotateZ=338&translateZ=25&translatez=25&width=800&padding=60&offsetx=0&offsety=0&offsetX=734&offsetY=-227&rotateX=7&rotateY=0) - Seeminly endless plain of digital beauty.
+- [Flourescent](?highlight=hopscotch&tiltshift=elegant&vignette=0.5&brightness=2.5&contrast=205&scale=0.9&perspective=1500&rotatex=344&rotatey=352&scalez=1&rotatez=10&translatez=0&width=1336&padding=62&offsetx=-197&offsety=287&bg=cornsilk&fontsize=178&rotateX=344&rotateY=352&scaleZ=1&rotateZ=10&translateZ=0&gist=ff9e36538de06b6a0b40a96252d58dc5&css=c6d0a4d16b627d72563b43b60a164c31&primary-color=slategrey) - Dark theme with vivid highlights.
+- [Tech Glorious](?highlight=arta&gist=1afacb7b662cfbfd0624e52c6425ceee&translatez=0&font=cousine&brightness=0.6&hue-rotate=153&css=a634da7b7130fd40d682360154cc4e2e&vignette=0.85&contrast=297&invert=0&fontsize=137&scale=1&perspective=411&rotatex=15&rotatey=3&scalez=1&rotatez=10&tiltshift=none&primary-color=green&rotateX=352) - Another vibrant, futuristic tech theme.
+- [Scribbled Code](?highlight=arduino-light&font=default&css=77b1f66ad5093c2db29c666ad15f334d&gist=ff9e36538de06b6a0b40a96252d58dc5&translatez=215&perspective=691&vignette=0.175&rotatex=8&brightness=1&contrast=101&invert=0&sepia=28&hue-rotate=0&saturate=99) - Scribbled notes on aged graph paper.
+- [Cogito l33t](?highlight=arta&gist=1afacb7b662cfbfd0624e52c6425ceee&translatez=0&font=cousine&brightness=0.7&hue-rotate=153&css=a634da7b7130fd40d682360154cc4e2e&vignette=0.8&contrast=300&invert=0&fontsize=137&scale=1&perspective=411&rotatex=352&rotatey=3&scalez=1&rotatez=10&tiltshift=none&primary-color=green&rotateX=352&svg-filter=none&grayscale=0&saturate=100&sepia=0&blur=0&width=800&padding=60&offsetx=0&offsety=0&bg=cornsilk&offsetX=394&offsetY=364) -  Scanline effect with bloom-like filter.
+- [Laminated Glory](?svg-filter=Silk+Carpet-f053&css=e9dc237da3d9bda63302fe4b659c20b5&translatez=350&perspective=1163&rotatey=0&rotatez=339&rotatex=27&gist=83ccf018e834b68cfa1f8d33510642a7&fontsize=300&brightness=1.1&vignette=0&contrast=114&sepia=0&invert=100&hue-rotate=187&grayscale=32&saturate=116&scale=2.32) - Silky,laminated wood up cloase.
+- [Deep Art](?highlight=xcode&font=anonymous-pro&svg-filter=Liquid+Drawing-f147&css=ece15baa3b80cd95bc0b7a0a2b5a24bd&gist=95beb4892f95a5945da54a069ee47b10&translatez=470&contrast=105&brightness=0.7&hue-rotate=0&invert=0&sepia=46&blur=0&perspective=989&rotatex=13&rotatez=4&vignette=0.825) - Prisma-like filter for deep art styled code.
+- [High Contrast Mass](?highlight=vs&font=anonymous-pro&svg-filter=Posterized+Light+Eraser-filter451&translatez=80&css=d1a6d5621b883bf6af886855d853d502&gist=95beb4892f95a5945da54a069ee47b10&invert=100&hue-rotate=116&contrast=300&brightness=1.3&vignette=1&perspective=565&rotatex=2&rotatez=4&saturate=293&rotatey=18) - Massively posterized mess of high contrasts.
 
 <!-- {$gd_collapsible_end_presets} -->
 

@@ -56,7 +56,7 @@ pre.hljs {
 }
 
 .section {
-  width: 50%;
+  width: 800px;
   margin: auto;
 }
 
@@ -64,6 +64,7 @@ pre.hljs {
   margin: auto;
   padding: 60%;
   touch-action: none;
+  transform-origin: center;
 }
 
 /* tiltshift styles */
