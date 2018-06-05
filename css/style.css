@@ -58,6 +58,11 @@ pre.hljs {
 .section {
   width: 800px;
   margin: auto;
+  border: 2px solid rgba(0,0,0,0) !important;
+}
+
+.section:hover {
+  border: 2px solid rgba(0,0,0,0.1) !important;
 }
 
 .inner {
@@ -65,6 +70,7 @@ pre.hljs {
   padding: 60%;
   touch-action: none;
   transform-origin: center;
+  perspective-origin: center;
 }
 
 /* tiltshift styles */

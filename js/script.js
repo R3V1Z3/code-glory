@@ -40,7 +40,7 @@ function done() {
     default_transform = '.inner { transform: scale(1)';
     default_transform += ' perspective(1500px) rotateX(15deg) rotateY(3deg)';
     default_transform += ' scaleZ(1) rotateZ(10deg) translateZ(0px)};';
-    
+
     // setup default transform if no user provided css
     if ( css === '' ) {
         css = default_transform;
@@ -191,6 +191,8 @@ function render_values(t) {
         const section = document.querySelector( gd.eid + ' .section');
         let w = $('.info .field.slider.width input').val();
         section.setAttribute("style", `width: ${w}px;`);
+        const x = section.offsetLeft;
+        const y = section.offsetTop;
         if ( e !== null ) {
             //w = e.offsetWidth;
             const h = e.offsetHeight;
@@ -198,10 +200,14 @@ function render_values(t) {
             const maxheight = window.innerHeight;
 
             // calculate translateX and translateY based on offsets
-            const offsetX = $('.info .field.slider.offsetX input').val();
-            const offsetY = $('.info .field.slider.offsetY input').val();
-            const translateX = offsetX - (maxwidth) + w / 2;//x - (maxwidth / 2) + w / 2;
-            const translateY = offsetY - (maxheight);//y - (maxheight / 2) + h / 2;
+            const offsetX = parseInt($('.info .field.slider.offsetX input').val());
+            const offsetY = parseInt($('.info .field.slider.offsetY input').val());
+
+            let translateX = -(x - (maxwidth / 2) + w / 2);
+            let translateY = -(y - (maxheight / 1.5 ) + h / 2);
+
+            translateX += offsetX;
+            translateY += offsetY;
             
             f += `translateX(${translateX}px) `;
             f += `translateY(${translateY}px) `;
