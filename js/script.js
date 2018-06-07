@@ -11,6 +11,7 @@ const gd = new GitDown('#wrapper', {
 });
 
 var eid = gd.eid;
+var timeout;
 
 function done() {
 
@@ -49,7 +50,6 @@ function done() {
     get_transforms(css);
     register_events();
 
-    render_values(true);
     var x = $('.info .slider.offsetX input').val();
     var y = $('.info .slider.offsetY input').val();
     $(eid_inner).attr( 'data-x' , x );
@@ -67,11 +67,12 @@ function done() {
     }
 
     $('.code-overlay').show();
-    tiltshift();
 
     // everything loaded, now calculate url params
     gd.update_fields_with_params();
     render_values(true);
+    toggle_class('tiltshift');
+    toggle_class('font-effect');
 }
 
 function vignette(v) {
@@ -190,12 +191,21 @@ function render_values(t) {
         const e = document.querySelector( gd.eid );
         const section = document.querySelector( gd.eid + ' .section');
         let w = $('.info .field.slider.width input').val();
-        section.setAttribute("style", `width: ${w}px;`);
-        const x = section.offsetLeft;
-        const y = section.offsetTop;
+        let p = $('.info .field.slider.padding input').val();
+
+        // todo:
+        // width is 
+        section.setAttribute("style", `width: ${w}px; padding: ${p}em;`);
+        w = section.offsetWidth;
+        h = section.offsetHeight;
+        let x = section.offsetLeft;
+        let y = section.offsetTop;
+        // offset works perfectly when there are no transforms
+        // we need a calculation that works even with transforms
+        const bounds = section.getBoundingClientRect();
+        //console.log(`offsetLeft: ${x} bounds.x: ${bounds.x} offsetTop: ${y} bounds.y: ${bounds.y}`);
         if ( e !== null ) {
             //w = e.offsetWidth;
-            const h = e.offsetHeight;
             const maxwidth = window.innerWidth;
             const maxheight = window.innerHeight;
 
@@ -203,8 +213,9 @@ function render_values(t) {
             const offsetX = parseInt($('.info .field.slider.offsetX input').val());
             const offsetY = parseInt($('.info .field.slider.offsetY input').val());
 
+            // it is not centered in the middle of .section
             let translateX = -(x - (maxwidth / 2) + w / 2);
-            let translateY = -(y - (maxheight / 1.5 ) + h / 2);
+            let translateY = -(y - (maxheight / 2 ) + h / 2);
 
             translateX += offsetX;
             translateY += offsetY;
@@ -213,6 +224,7 @@ function render_values(t) {
             f += `translateY(${translateY}px) `;
 
             $(eid_inner).css( 'transform', f );
+            // because of this transform, boundingClienRect() changes
         }
     }
 }
@@ -249,30 +261,31 @@ function load_gfont(f) {
     $('head').append(link);
 }
 
-function tiltshift() {
-    var ts = $('.info .field.select.tiltshift select').val().toLowerCase();
-    if ( ts === 'none' || ts === null ) {
-        $('.code').removeClass(function (index, css) {
-            return (css.match (/\btilt-\S+/g) || []).join(' ');
-        });
-        $('.code-overlay').removeClass(function (index, css) {
-            return (css.match (/\btilt-\S+/g) || []).join(' ');
-        });
-    } else {
-        $('.code').removeClass(function (index, css) {
-            return (css.match (/\btilt-\S+/g) || []).join(' ');
-        });
-        $('.code-overlay').removeClass(function (index, css) {
-            return (css.match (/\btilt-\S+/g) || []).join(' ');
-        });
-        $('.code').addClass('tilt-' + ts);
-        $('.code-overlay').addClass('tilt-' + ts);
+function remove_class_by_prefix( element, prefix ) {
+    const el = document.querySelector(element);
+    var classes = el.classList;
+    for( var c of classes ) {
+        if ( c.startsWith(prefix) ) el.classList.remove(c);
+    }
+}
+
+function toggle_class(type) {
+    var v = $(`.info .field.select.${type} select`).val().toLowerCase();
+    // remove existing classes first
+    remove_class_by_prefix( gd.eid + ' .code', type );
+    remove_class_by_prefix( gd.eid + ' .code-overlay', type );
+    if ( v !== 'none' || v !== null ) {
+        console.log(v);
+        $('.code').addClass(`${type}-${v}`);
+        $('.code-overlay').addClass(`${type}-${v}`);
     }
 }
 
 function register_events() {
 
     window.addEventListener('resize', function(event){
+        // this fires multiple times during resize
+        // we'll render values each time as it looks better
         render_values(true);
     });
 
@@ -288,7 +301,7 @@ function register_events() {
         vignette(v);
     });
 
-    // add click event to sliders
+    // add change event to sliders
     $('.info .field.slider input').on('input change', function(e) {
         var $p = $(this).closest('.collapsible');
         if ( $p.hasClass('effects') ) {
@@ -303,7 +316,11 @@ function register_events() {
     });
 
     $('.info .field.select.tiltshift select').change(function() {
-        tiltshift();
+        toggle_class('tiltshift');
+    });
+
+    $('.info .field.select.font-effect select').change(function() {
+        toggle_class('font-effect');
     });
 
     // mousewheel zoom handler
