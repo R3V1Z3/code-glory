@@ -69,7 +69,7 @@ function done() {
     $('.code-overlay').show();
 
     // everything loaded, now calculate url params
-    gd.update_fields_with_params();
+    gd.update_from_params();
     render_values(true);
     toggle_class('tiltshift');
     toggle_class('font-effect');
