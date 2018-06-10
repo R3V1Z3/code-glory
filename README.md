@@ -28,13 +28,15 @@ Examples Gists <!-- {$gd_gist} -->
 - [Cogito ergo sum](https://gist.github.com/1afacb7b662cfbfd0624e52c6425ceee)
 - [Vim logo](https://gist.github.com/5611986)
 - [querySelector.js](https://gist.github.com/AllThingsSmitty/f9029e6236a7c2a03203)
-- [Play Nethack Alt](https://gist.github.com/66f1f3786beb72f03c5b461519081764)
-- [WP disable jQuery Migrate](https://gist.github.com/chuckreynolds/f7f108880a1c8e674efc229245d93b09)
+- [Bash script to parse YAML](https://gist.github.com/2660189)
 - [String-reverse.js](https://gist.github.com/nilz3ro/ff9e36538de06b6a0b40a96252d58dc5)
-- [Recursion.cpp](https://gist.github.com/95beb4892f95a5945da54a069ee47b10)
 - [Cubes](https://gist.github.com/9787981)
 - [Backdrop Drop](https://gist.github.com/9ef934473e4cf4d50d8b06d2598b24d1)
-- [jQuery template](https://gist.github.com/mediaash/7983499)
+- [WordPress loop](https://gist.github.com/7c79ca62ff5068f03dceb59fda986be9)
+- [AlternativeTo](https://gist.github.com/26b8ee1c068e8ee2a890a9bb98e3c693)
+- [Zork](https://gist.github.com/bcd81019340cb164191ef02db16be218)
+- [Load JSON into Python object](https://gist.github.com/2660189)
+- [HTTP Get in Go](https://gist.github.com/950790)
 
 -----
 
@@ -42,7 +44,6 @@ Examples Gists <!-- {$gd_gist} -->
 
 Themes <!-- {$gd_css} -->
 - [Dark Glow](https://gist.github.com/c6d0a4d16b627d72563b43b60a164c31)
-- [Bevelled](https://gist.github.com/2db42669ad4101a680c5cdc79fe4daf8)
 
 Font <!-- {$gd_select_font} -->
 - Default
@@ -251,6 +252,7 @@ Ready-made templates:
 - [Laminated Glory](?svg-filter=Silk+Carpet-f053&css=e9dc237da3d9bda63302fe4b659c20b5&translatez=350&perspective=1163&rotatey=0&rotatez=339&rotatex=27&gist=83ccf018e834b68cfa1f8d33510642a7&fontsize=300&brightness=1.1&vignette=0&contrast=114&sepia=0&invert=100&hue-rotate=187&grayscale=32&saturate=116&scale=2.32) - Silky,laminated wood up close.
 - [Voxel](?font=roboto-mono&font-effect=3d&highlight=ir-black&tiltshift=elegant&svg-filter=none&vignette=0.65&brightness=1.1&contrast=147&grayscale=0&hue-rotate=0&invert=0&saturate=100&sepia=0&blur=0&scale=1.25&perspective=1506&rotatex=15&rotatey=3&scalez=1&rotatez=1&translatez=0&width=800&bg=darkcyan&fontsize=100&rotateZ=4&gist=7983499&rotateX=14&rotateY=7) - Isometric view with vibrant colors akin to those in voxel videogames.
 - [High Contrast Mass](?highlight=vs&font=anonymous-pro&svg-filter=Stained+Glass-f086&translatez=0&css=d1a6d5621b883bf6af886855d853d502&gist=ff9e36538de06b6a0b40a96252d58dc5&invert=100&hue-rotate=109&contrast=300&brightness=1.3&vignette=1&perspective=2000&rotatex=15&rotatez=10&saturate=293&rotatey=3&tiltshift=none&scale=1.31&scalez=1&bg=cornsilk&fontsize=100&rotateY=4&rotateZ=10) - Massively posterized mess of high contrasts.
+- [AlternativeTo](?gist=26b8ee1c068e8ee2a890a9bb98e3c693&highlight=none&font=fira-mono&font-effect=3d&tiltshift=elegant&svg-filter=none&vignette=0.3&contrast=200&perspective=1382&rotateX=13&rotateY=3&scaleZ=1&rotateZ=10&translateZ=-500&width=1144&offsetX=-800&offsetY=-560&bg=slategray&fontsize=150&rotatey=3) - Psuedo-3d ASCII art.
 
 <!-- {$gd_collapsible_end_presets} -->
 
