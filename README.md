@@ -1,19 +1,21 @@
 # CODE Glory
 
 You've prettified your code, now make it glorious. Easily add CSS effects to your code, no download needed.
-    _____       _______ _______ ______   _______ _______ __    .            .
-  _|  |  |_    |   _   |   _   |   _  \ |   _   |   _   |  .-----.----.--.--.
- |_       _|   |.  1___|.  |   |.  |   \|.  1___|.  |___|  |  _  |   _|  |  |
- |_       _|   |.  |___|.  |   |.  |    |.  __)_|.  |   |__|_____|__| |___  |
-   |__|__|   . |:  1   |:  1   |:  1    |:  1   |:  1   |  .     .    |_____|
-     .     .   |::.. . |::.. . |::.. . /|::.. . |::.. . |       .        .   
-  .   .        `-------`-------`------' `-------`-------'
+
+`    _____       _______ _______ ______   _______ _______ __    .            .
+`  _|  |  |_    |   _   |   _   |   _  \ |   _   |   _   |  .-----.----.--.--.
+` |_       _|   |.  1___|.  |   |.  |   \|.  1___|.  |___|  |  _  |   _|  |  |
+` |_       _|   |.  |___|.  |   |.  |    |.  __)_|.  |   |__|_____|__| |___  |
+`   |__|__|   . |:  1   |:  1   |:  1    |:  1   |:  1   |  .     .    |_____|
+`     .     .   |::.. . |::.. . |::.. . /|::.. . |::.. . |       .        .   
+`  .   .        `-------`-------`------' `-------`-------'
+`
 
 Check the intro video: https://www.youtube.com/watch?v=GPVvSEkA90o
 
 ## Usage
 
-- Post your code for free on [GitHub Gist](gist.github.com).
+- Post your code for free on [GitHub Gist](https://gist.github.com).
 - Paste the URL or ID in the Gist box.
 - Press ENTER.
 
