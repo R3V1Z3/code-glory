@@ -1,21 +1,21 @@
-# Code Glory
+# CODE Glory
 
-You've prettified your code, now make it glorious with CSS effects, transforms and SVG filters. Code Glory lets you easily add gorgeous effects to your code, no download needed.
+You've prettified your code, now make it glorious. Easily add CSS effects to your code, no download needed.
+    _____       _______ _______ ______   _______ _______ __    .            .
+  _|  |  |_    |   _   |   _   |   _  \ |   _   |   _   |  .-----.----.--.--.
+ |_       _|   |.  1___|.  |   |.  |   \|.  1___|.  |___|  |  _  |   _|  |  |
+ |_       _|   |.  |___|.  |   |.  |    |.  __)_|.  |   |__|_____|__| |___  |
+   |__|__|   . |:  1   |:  1   |:  1    |:  1   |:  1   |  .     .    |_____|
+     .     .   |::.. . |::.. . |::.. . /|::.. . |::.. . |       .        .   
+  .   .        `-------`-------`------' `-------`-------'
 
-Check out the intro video: https://www.youtube.com/watch?v=GPVvSEkA90o
+Check the intro video: https://www.youtube.com/watch?v=GPVvSEkA90o
 
 ## Usage
 
-Simply post your code for free on Github Gist, get the Gist ID and enter it in the Gist ID box. Select from a number of bundled themes or create your own theme with CSS code as a Gist.
-
-Click and drag to move the code section around on the rendered page.
-
-Code Glory uses highlight.js for syntax coloring which you can customize using the `highlight` parameter.
-
-Add a style parameter like so:
-https://ugotsta.github.io/code-glory/?gist=9787981&style=monokai
-
-For more info on the highlight styles, see: https://highlightjs.org/
+- Post your code for free on [GitHub Gist](gist.github.com).
+- Paste the URL or ID in the Gist box.
+- Press ENTER.
 
 ## Examples <!-- {$gd_info} -->
 <!-- {$gd_help_ribbon} -->
@@ -33,10 +33,15 @@ Examples Gists <!-- {$gd_gist} -->
 - [Cubes](https://gist.github.com/9787981)
 - [Backdrop Drop](https://gist.github.com/9ef934473e4cf4d50d8b06d2598b24d1)
 - [WordPress loop](https://gist.github.com/7c79ca62ff5068f03dceb59fda986be9)
-- [Zork](https://gist.github.com/bcd81019340cb164191ef02db16be218)
+- [Zork screenshot](https://gist.github.com/bcd81019340cb164191ef02db16be218)
 - [Load JSON into Python object](https://gist.github.com/2660189)
 - [QuickBasic Stars](https://gist.github.com/399b69445ae646c0160d644db08f5ed9)
 - [HTTP Get in Go](https://gist.github.com/950790)
+- [ASCIInator.py](https://gist.github.com/10491632)
+- [neovim_startify_header.vim](https://gist.github.com/2c928108d1fa87ab4462fad9be99ebec)
+- [Create-Administrator.ps1](https://gist.github.com/3a65704a3b92dfa0301e)
+- [Easing CSS variables](https://gist.github.com/ac03faac0bf2aee25b49e5fd260a727d)
+- [Latency stats for programmers](https://gist.github.com/2841832)
 
 -----
 
@@ -98,7 +103,7 @@ Font Effect<!-- {$gd_select_font-effect} -->
 - Wallpaper
 
 Highlight Styles <!-- {$gd_select_highlight} -->
-- None
+- *None
 - Default
 - Agate
 - Androidstudio
@@ -139,7 +144,7 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 - Googlecode
 - Grayscale
 - Gruvbox Dark
-- *Gruvbox Light
+- Gruvbox Light
 - Hopscotch
 - Hybrid
 - Idea
@@ -215,13 +220,13 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 
 <!-- {$gd_slider_perspective="1500,0,2000,1,px"} -->
 
-<!-- {$gd_slider_rotateX="0,0,360,1,deg"} -->
+<!-- {$gd_slider_rotateX="10,0,360,1,deg"} -->
 
-<!-- {$gd_slider_rotateY="0,0,360,1,deg"} -->
+<!-- {$gd_slider_rotateY="10,0,360,1,deg"} -->
 
 <!-- {$gd_slider_scaleZ="0,1,5,0.1"} -->
 
-<!-- {$gd_slider_rotateZ="0,0,360,1,deg"} -->
+<!-- {$gd_slider_rotateZ="358,0,360,1,deg"} -->
 
 <!-- {$gd_slider_translateZ="0,-500,500,1,px"} -->
 
@@ -253,6 +258,8 @@ Ready-made templates:
 - [Voxel](?gist=950790&highlight=ir-black&font=roboto-mono&font-effect=3d&vignette=0.65&brightness=1.1&contrast=147&scale=1.25&perspective=1506&rotateX=14&rotateY=7&scaleZ=1&rotateZ=4&offsetX=140&offsetY=180&bg=indianred) - Isometric view with vibrant colors akin to those in voxel videogames.
 - [High Contrast Mass](?highlight=vs&font=anonymous-pro&svg-filter=Stained+Glass-f086&translatez=0&css=d1a6d5621b883bf6af886855d853d502&gist=ff9e36538de06b6a0b40a96252d58dc5&invert=100&hue-rotate=109&contrast=300&brightness=1.3&vignette=1&perspective=2000&rotatex=15&rotatez=10&saturate=293&rotatey=3&tiltshift=none&scale=1.31&scalez=1&bg=cornsilk&fontsize=100&rotateY=4&rotateZ=10) - Massively posterized mess of high contrasts.
 - [Basically](?gist=399b69445ae646c0160d644db08f5ed9&css=adc373c2d5a5d2b07821686e93a9630b&highlight=grayscale&font=fira-code-iscript&scale=1.41&rotateX=15&rotateY=3&scaleZ=1&rotateZ=10&width=570&padding=2&offsetX=100&offsetY=264&bg=cornsilk&offsetx=22&offsety=280) - Elegant, minimalist theme using mostly default settings.
+- [Monochrome](?gist=2c928108d1fa87ab4462fad9be99ebec&css=51aa23d96f9bd81fe55c47b2d51855a5&highlight=none&bg=aqua&fontsize=120&tiltshift=none&svg-filter=Litho-filter169&vignette=0.875&brightness=0.85&contrast=300&rotateX=0&rotateY=0&rotateZ=0&width=710&padding=1) - Classic monochrome monitor style display complete with dithered pixels.
+- [Nyanyan](?gist=3062237&css=c6d0a4d16b627d72563b43b60a164c31&highlight=xcode&font=anonymous-pro&font-effect=3d&tiltshift=extreme&svg-filter=Hue%20to%20White-f182&vignette=0.925&brightness=1.65&contrast=137&scale=1.55&rotateX=0&rotateY=0&rotateZ=348&offsetX=391&offsetY=188&fontsize=75) - Dark backdrop accented by bright foreground colors.
 - [c0d3 l33t](?gist=1afacb7b662cfbfd0624e52c6425ceee&css=a634da7b7130fd40d682360154cc4e2e&highlight=arta&font=cousine&tiltshift=none&svg-filter=Neon-f038&vignette=0.675&brightness=0.55&contrast=300&hue-rotate=153&perspective=411&rotateX=352&scaleZ=1&offsetX=285&offsetY=121&fontsize=137) - Scanline effect with bloom-like filter.
 
 <!-- {$gd_collapsible_end_presets} -->
