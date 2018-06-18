@@ -35,8 +35,6 @@ function done() {
     var h = $('.info .field.select.highlight select').change();
     
     var css = gd.get_setting('style');
-    var f = $( ' .info .field.font select' ).val();
-    update_font(f);
     
     default_transform = '.inner { transform: scale(1)';
     default_transform += ' perspective(1500px) rotateX(15deg) rotateY(3deg)';
@@ -193,17 +191,11 @@ function render_values(t) {
         let w = $('.info .field.slider.width input').val();
         let p = $('.info .field.slider.padding input').val();
 
-        // todo:
-        // width is 
         section.setAttribute("style", `width: ${w}px; padding: ${p}em;`);
         w = section.offsetWidth;
         h = section.offsetHeight;
         let x = section.offsetLeft;
         let y = section.offsetTop;
-        // offset works perfectly when there are no transforms
-        // we need a calculation that works even with transforms
-        const bounds = section.getBoundingClientRect();
-        //console.log(`offsetLeft: ${x} bounds.x: ${bounds.x} offsetTop: ${y} bounds.y: ${bounds.y}`);
         if ( e !== null ) {
             //w = e.offsetWidth;
             const maxwidth = window.innerWidth;
@@ -229,38 +221,6 @@ function render_values(t) {
     }
 }
 
-function update_font(f) {
-    // remove any existing font link
-    $('#gd-font').remove();
-    if ( f === undefined || f === null ) f = 'default';
-    if ( f.toLowerCase() !== 'default' ) {
-        f = f.replace( /\-/g, '+' );
-        // capitalize words
-        f = f.replace( /\b\w/g, l => l.toUpperCase() );
-        f = f.replace( 'Iscript', 'iScript' );
-        f = f.replace( 'Ibm', 'IBM' );
-        f = f.replace( 'Pt+Mono', 'PT+Mono' );
-        f = f.replace( 'Vt323', 'VT323' );
-        if ( f === "Fira+Code+iScript") {
-            // 'Fira Code iScript'
-        } else if ( f === "Fira+Code") {
-            //
-        } else {
-            load_gfont(f);
-        }
-        // now lets add the font to the section elements
-        f = f.replace( /\+/g, ' ' );
-        $('.inner .section *').css({ fontFamily : f });
-    }
-}
-
-function load_gfont(f) {
-    const href = '//fonts.googleapis.com/css?family=' + f;
-    // create link
-    const link = `<link id="gd-font" rel="stylesheet" href="${href}">`;
-    $('head').append(link);
-}
-
 function remove_class_by_prefix( element, prefix ) {
     const el = document.querySelector(element);
     var classes = el.classList;
@@ -275,7 +235,6 @@ function toggle_class(type) {
     remove_class_by_prefix( gd.eid + ' .code', type );
     remove_class_by_prefix( gd.eid + ' .code-overlay', type );
     if ( v !== 'none' || v !== null ) {
-        console.log(v);
         $('.code').addClass(`${type}-${v}`);
         $('.code-overlay').addClass(`${type}-${v}`);
     }
@@ -287,12 +246,6 @@ function register_events() {
         // this fires multiple times during resize
         // we'll render values each time as it looks better
         render_values(true);
-    });
-
-    // set font based on user selection
-    $( ' .info .field.font select' ).change(function() {
-        var font = $(this).val();
-        update_font(font);
     });
 
     // vignette effect
