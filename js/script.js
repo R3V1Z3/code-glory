@@ -15,62 +15,52 @@ var timeout;
 
 function done() {
 
-    // remove any existing svg ids
-    $('#svg').remove();
-    $('.info .toc-heading').remove();
-    $('.info .toc').remove();
+    if ( !gd.status.has('changed') ) {
+        // remove any existing svg ids
+        $('#svg').remove();
+        $('.info .toc-heading').remove();
+        $('.info .toc').remove();
 
-    svg_filter = gd.get_param('svg-filter');
-    extract_svg('filters.svg');
+        svg_filter = gd.get_param('svg-filter');
+        extract_svg('filters.svg');
 
-    // wrap .inner with an fx div
-    if ( $('.fx').length === 0 ) {
-        $(eid_inner).wrap('<div class="fx">');
-        $('.fx').append('<div class="vignette"></div>');
-    }
-    
-    var v = $('.info .field.slider.vignette input').val();
-    vignette(v);
-
-    var h = $('.info .field.select.highlight select').change();
-    
-    var css = gd.get_setting('style');
-    
-    default_transform = '.inner { transform: scale(1)';
-    default_transform += ' perspective(1500px) rotateX(15deg) rotateY(3deg)';
-    default_transform += ' scaleZ(1) rotateZ(10deg) translateZ(0px)};';
-
-    // setup default transform if no user provided css
-    if ( css === '' ) {
-        css = default_transform;
-    }
-    
-    get_transforms(css);
-    register_events();
-
-    var x = $('.info .slider.offsetX input').val();
-    var y = $('.info .slider.offsetY input').val();
-    $(eid_inner).attr( 'data-x' , x );
-    $(eid_inner).attr( 'data-y' , y );
-
-    // include message for firefox users re: fx layer
-    if( navigator.userAgent.toLowerCase().indexOf('firefox') !== -1 ){
-        var fx_fields = document.querySelector( '.info .field.collapsible.effects .contents' );
-        if ( fx_fields !== null ) {
-            var message = 'Sorry, effects are currently disabled in Firefox due to technical hurdles. ';
-            var link = '<a href="https://alternativeto.net/software/ungoogled-chromium/">Ungoogled Chromium</a>';
-            message += `Please consider using a safe and modern alternative such as ${link}.`;
-            fx_fields.innerHTML = message;
+        // wrap .inner with an fx div
+        if ( $('.fx').length === 0 ) {
+            $(eid_inner).wrap('<div class="fx">');
+            $('.fx').append('<div class="vignette"></div>');
         }
+        
+        var v = $('.info .field.slider.vignette input').val();
+        vignette(v);
+
+        var h = $('.info .field.select.highlight select').change();
+
+        var x = $('.info .slider.offsetX input').val();
+        var y = $('.info .slider.offsetY input').val();
+        $(eid_inner).attr( 'data-x' , x );
+        $(eid_inner).attr( 'data-y' , y );
+
+        $('.code-overlay').show();
+
+        update_class('tiltshift');
+        update_class('font-effect');
+        register_events();
     }
 
-    $('.code-overlay').show();
+    if ( gd.status.has('theme-changed') ) {
+        // first update fields based on cssvar defaults
+        gd.update_from_params();
+    }
 
-    // everything loaded, now calculate url params
-    gd.update_from_params();
-    render_values(true);
-    toggle_class('tiltshift');
-    toggle_class('font-effect');
+    center_view();
+}
+
+function changed() {
+    // workaround til we fix gitdown gd.status.has('changed')
+    // which currently returns undefined
+    if ( gd.status.has('theme-changed') ) return true;
+    if ( gd.status.has('gist-changed') ) return true;
+    return false;
 }
 
 function vignette(v) {
@@ -100,6 +90,7 @@ function extract_svg(filename) {
             $('#svg defs filter').each(function() {
                 var id = $(this).attr('id');
                 var name = $(this).attr('inkscape:label');
+                //$select.append(`<option>${name}-${id}</option>`);
                 $select.append(`<option>${name}-${id}</option>`);
             });
         }
@@ -110,42 +101,6 @@ function extract_svg(filename) {
         $select.change();
     });
 }
-    
-function get_transforms(css) {
-    if ( css != '' ) {
-        var v = parse_for_transforms(default_transform);//parse_for_transforms(css);
-        // use default_transform if no transform provided in user css
-        if ( v === '' ) {
-            v = parse_for_transforms(default_transform);
-        }
-        
-        v = v.split(' ');
-        
-        for ( var i = 0; i < v.length; i++ ) {
-            // name will be all text up til paren (
-            var name = v[i].split('(')[0];
-            // value will be data after opening paren (
-            var value = v[i].split('(')[1].trim();
-            // remove closing paren )
-            value = Number(value.replace(/[^0-9\.\-]+/g,""));
-            update_slider_value( name, value );
-        }
-    }
-}
-
-function parse_for_transforms(css) {
-    // split at .inner
-    if ( css.indexOf('.inner {') != -1 ) {
-        var i = css.split( '.inner {' )[1];
-        i = i.split('}')[0];
-        // now split at transform:
-        if ( i.indexOf('transform:') != -1 ) {
-            var j = i.split( 'transform:' )[1];
-            return j.trim();
-        }
-    }
-    return '';
-}
 
 function update_slider_value( name, value ) {
     var slider = document.querySelector( `.info .slider.${name} input` );
@@ -153,71 +108,41 @@ function update_slider_value( name, value ) {
     slider.setAttribute( 'value', value );
 }
 
-// t = true when rendering transforms
-function render_values(t) {
-    var f = '';
-    var v = 'effects';
-    if (t) v = 'perspective';
-    $fields = $(`.info .collapsible.${v} .field.slider`);
-    $fields.each(function(){
-        var $i = $(this).find('input');
-        var name = $i.attr('name');
-        var value = $i.val();
-        var suffix = $i.attr('data-suffix');
-        if ( suffix === undefined ) suffix = '';
-        // add values of tranform sliders to f
-        if ( name != 'vignette' ) {
-            f += `${name}(${value}${suffix}) `;
-        }
-    });
-    if (!t) {
-        var svg = $('.info .field.select.svg-filter select').val();
-        var x = '';
-        if ( svg === 'none' || svg === null ) {
-        } else {
-            var splt = svg.split('-');
-            svg = splt[splt.length - 1];
-            f += `url("#${svg}")`;
-        }
-        
-        // todo: filter breaks on firefox, we'll hide it for now
-        if( navigator.userAgent.toLowerCase().indexOf('firefox') === -1 ){
-            $('.fx').css( 'filter', f );
-        }
-    } else if (t) {
-        // center viewport
-        const e = document.querySelector( gd.eid );
-        const section = document.querySelector( gd.eid + ' .section');
-        let w = $('.info .field.slider.width input').val();
-        let p = $('.info .field.slider.padding input').val();
+// center view by updating translatex and translatey
+function center_view() {
+    // center viewport
+    const e = document.querySelector( gd.eid );
+    const section = document.querySelector( gd.eid + ' .section');
+    let w = section.offsetWidth;
+    let h = section.offsetHeight;
+    let x = section.offsetLeft;
+    let y = section.offsetTop;
 
-        section.setAttribute("style", `width: ${w}px; padding: ${p}em;`);
-        w = section.offsetWidth;
-        h = section.offsetHeight;
-        let x = section.offsetLeft;
-        let y = section.offsetTop;
-        if ( e !== null ) {
-            //w = e.offsetWidth;
-            const maxwidth = window.innerWidth;
-            const maxheight = window.innerHeight;
+    if ( e !== null ) {
+        //w = e.offsetWidth;
+        const maxwidth = window.innerWidth;
+        const maxheight = window.innerHeight;
 
-            // calculate translateX and translateY based on offsets
-            const offsetX = parseInt($('.info .field.slider.offsetX input').val());
-            const offsetY = parseInt($('.info .field.slider.offsetY input').val());
+        // calculate translateX and translateY based on offsets
+        const offsetX = parseInt($('.info .field.slider.offsetX input').val());
+        const offsetY = parseInt($('.info .field.slider.offsetY input').val());
 
-            // it is not centered in the middle of .section
-            let translateX = -(x - (maxwidth / 2) + w / 2);
-            let translateY = -(y - (maxheight / 2 ) + h / 2);
+        // it is not centered in the middle of .section
+        let translateX = -(x - (maxwidth / 2) + w / 2);
+        let translateY = -(y - (maxheight / 2 ) + h / 2);
 
-            translateX += offsetX;
-            translateY += offsetY;
-            
-            f += `translateX(${translateX}px) `;
-            f += `translateY(${translateY}px) `;
+        translateX += offsetX;
+        translateY += offsetY;
 
-            $(eid_inner).css( 'transform', f );
-            // because of this transform, boundingClienRect() changes
-        }
+        let tx = document.querySelector('.info .slider.hid-translateX input');
+        let ty = document.querySelector('.info .slider.hid-translateY input');
+
+        if ( tx === null || ty === null) return;
+
+        // PROBLEM: this doubling of calls likely renders the ui change twice
+        // TODO: combine what's needed from update_field() and write the function here
+        gd.update_field(tx, translateX);
+        gd.update_field(ty, translateY);
     }
 }
 
@@ -229,7 +154,7 @@ function remove_class_by_prefix( element, prefix ) {
     }
 }
 
-function toggle_class(type) {
+function update_class(type) {
     var v = $(`.info .field.select.${type} select`).val().toLowerCase();
     // remove existing classes first
     remove_class_by_prefix( gd.eid + ' .code', type );
@@ -243,9 +168,7 @@ function toggle_class(type) {
 function register_events() {
 
     window.addEventListener('resize', function(event){
-        // this fires multiple times during resize
-        // we'll render values each time as it looks better
-        render_values(true);
+        center_view();
     });
 
     // vignette effect
@@ -254,42 +177,53 @@ function register_events() {
         vignette(v);
     });
 
-    // add change event to sliders
-    $('.info .field.slider input').on('input change', function(e) {
-        var $p = $(this).closest('.collapsible');
-        if ( $p.hasClass('effects') ) {
-            render_values(false);
-        } else if ( $p.hasClass('perspective') || $p.hasClass('dimensions') ) {
-            render_values(true);
-        }
-    });
+    $('.info .field.select.svg-filter select').change(e => {
+        let fx = document.querySelector('.fx');
+        if ( fx === null ) return;
 
-    $('.info .field.select.svg-filter select').change(function() {
-        render_values(false);
+        let style = `
+            brightness(var(--brightness))
+            contrast(var(--contrast))
+            grayscale(var(--grayscale))
+            hue-rotate(var(--hue-rotate))
+            invert(var(--invert))
+            saturate(var(--saturate))
+            sepia(var(--sepia))
+            blur(var(--blur))
+        `;
+
+        let svg = e.target.value;
+        let url = '';
+        svg = svg.split('-');
+        if ( svg.length > 1 ) url = ` url(#${svg[1].trim()})`;
+        style += url;
+        fx.style.filter = style;
     });
 
     $('.info .field.select.tiltshift select').change(function() {
-        toggle_class('tiltshift');
+        update_class('tiltshift');
     });
 
     $('.info .field.select.font-effect select').change(function() {
-        toggle_class('font-effect');
+        update_class('font-effect');
     });
 
     // mousewheel zoom handler
     $('.inner').on('wheel', function(e){
-        var $translatez = $('.info .slider.translateZ input');
-        var v = Number( $translatez.val() );
-        if(e.originalEvent.deltaY < 0) {
-            v += 5;
+        // disallow zoom within parchment content so user can safely scroll text
+        let translatez = document.querySelector('.info .slider.translateZ input');
+        if ( translatez === null ) return;
+        var v = Number( translatez.value );
+        if( e.originalEvent.deltaY < 0 ) {
+            v += 10;
             if ( v > 500 ) v = 500;
         } else{
-            v -= 5;
+            v -= 10;
             if ( v < -500 ) v = -500;
         }
-        update_slider_value( 'translateZ', v );
-        //$translatez.change();
-        render_values(true);
+        gd.settings.set_value('translateZ', v);
+        gd.update_field(translatez, v);
+        center_view();
     });
 
     interact(eid_inner)
@@ -319,7 +253,7 @@ function dragMoveListener (event) {
         var $offsetY = $('.info .slider.offsetY input');
         $offsetX.change();
         $offsetY.change();
-        render_values(true);
+        center_view();
     } else {
         // update_slider_value( 'offsetX', x );
         // update_slider_value( 'offsetY', y );
