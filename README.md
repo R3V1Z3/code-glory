@@ -54,28 +54,6 @@ Examples Gists <!-- {$gd_gist} -->
 Themes <!-- {$gd_css} -->
 - [Dark Glow](https://gist.github.com/c6d0a4d16b627d72563b43b60a164c31)
 
-Font <!-- {$gd_select_font} -->
-- Default
-- *Fira Code iScript
-- Fira Code
-- Fira Mono
-- Roboto Mono
-- Inconsolata
-- IBM Plex Mono
-- Source Code Pro
-- VT323
-- PT Mono
-- Ubuntu Mono
-- Cousine
-- Nanum Gothic Coding
-- Space Mono
-- Anonymous Pro
-- Share Tech Mono
-- Oxygen Mono
-- Cutive Mono
-- Nova Mono
-- Overpass Mono
-
 Font Effect<!-- {$gd_select_font-effect} -->
 - *None
 - 3d

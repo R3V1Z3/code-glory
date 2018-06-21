@@ -15,7 +15,7 @@ var timeout;
 
 function done() {
 
-    if ( !gd.status.has('changed') ) {
+    if ( !gd.status.has('theme-changed') ) {
         // remove any existing svg ids
         $('#svg').remove();
         $('.info .toc-heading').remove();
