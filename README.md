@@ -202,6 +202,10 @@ Highlight Styles <!-- {$gd_select_highlight} -->
 
 <!-- {$gd_slider_perspective="1500px,0,2000,1,px"} -->
 
+<!-- {$gd_slider_originX="50%,0,100,1,%"} -->
+
+<!-- {$gd_slider_originY="50%,0,100,1,%"} -->
+
 <!-- {$gd_slider_rotateX="0deg,0,360,1,deg"} -->
 
 <!-- {$gd_slider_rotateY="0deg,0,360,1,deg"} -->

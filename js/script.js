@@ -55,14 +55,6 @@ function done() {
     center_view();
 }
 
-function changed() {
-    // workaround til we fix gitdown gd.status.has('changed')
-    // which currently returns undefined
-    if ( gd.status.has('theme-changed') ) return true;
-    if ( gd.status.has('gist-changed') ) return true;
-    return false;
-}
-
 function vignette(v) {
     var bg = `radial-gradient(ellipse at center,`;
     bg += `rgba(0,0,0,0) 0%,`;
@@ -254,14 +246,6 @@ function dragMoveListener (event) {
         $offsetX.change();
         $offsetY.change();
         center_view();
-    } else {
-        // update_slider_value( 'offsetX', x );
-        // update_slider_value( 'offsetY', y );
-
-        // translate the element
-        // target.style.webkitTransform =
-        // target.style.transform =
-        //     'translate(' + x + 'px, ' + y + 'px)';
     }
     
     // update the position attributes
