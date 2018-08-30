@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="gd-code-glory" class="gd-glory">
+<html lang="en" id="gd-code-glory" class="gd-glory gd-scaled">
 
 <head>
     <meta charset="utf-8">
@@ -15,15 +15,13 @@
     <meta name="msapplication-config" content="/code-glory/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    <script src="//code.jquery.com/jquery-latest.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/markdown-it/7.0.0/markdown-it.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js"></script>
     
-    <script src="//ugotsta.github.io/gitdown/js/sanitizer.js"></script>
-    <script src="//ugotsta.github.io/gitdown/js/gitdown.js"></script>
+    <script src="//ugotsta.github.io/gitdown-madly/js/gitdown.js"></script>
+    <script src="js/script.js"></script>
     
-    <link rel="stylesheet" type="text/css" href="//ugotsta.github.io/gitdown/css/style.css">
+    <link rel="stylesheet" type="text/css" href="//ugotsta.github.io/gitdown-madly/css/style.css">
     
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -38,8 +36,22 @@
 <body id="custom">
     <div id="wrapper">
     </div>
+    <script>
 
-    <script src="js/script.js"></script>
+        const codeglory = new CodeGlory('#wrapper', {
+            title: 'Code Glory',
+            content: 'README.md',
+            raw: true,
+            merge_gists: false,
+            callback: ready
+        });
+
+        function ready() {
+            codeglory.ready();
+            console.log('Callback executed.');
+        }
+        
+    </script>
 </body>
 
 </html>
