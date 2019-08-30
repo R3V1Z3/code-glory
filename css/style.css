@@ -59,7 +59,7 @@
   position: fixed;
 }
 
-.gd-default .inner {
+.bd-default .inner {
   overflow: hidden;
 }
 
@@ -116,7 +116,7 @@ html, body, #wrapper, .container {
 }
 
 /* Sections */
-.gd-glory #custom section.section {
+.bd-glory #custom section.section {
   position: fixed;
   width: var(--width);
   height: min-content;

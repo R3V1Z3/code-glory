@@ -22,7 +22,7 @@ Check the intro [video](https://www.youtube.com/watch?v=GPVvSEkA90o).
 - Post your code for free on [GitHub Gist](https://gist.github.com).
 - Paste the URL or ID in the Gist box.
 
-# 🅲🅾🅳🅴𝒢𝓁𝑜𝓇𝓎 `🅖-nav`
+# 🅲🅾🅳🅴𝒢𝓁𝑜𝓇𝓎 `🅑-nav`
 
 𝒯𝒽𝓎 𝒸𝑜𝒹𝑒 𝓂𝒶𝒹𝑒 𝑔𝓁𝑜𝓇𝒾𝑜𝓊𝓈
 
@@ -30,7 +30,7 @@ Check the intro [video](https://www.youtube.com/watch?v=GPVvSEkA90o).
 
 `ⓘ The code below designates a list of content sources the user will be able to select from in the app.`
 
-content `🅖-datalist`
+content `🅑-datalist`
 - [Cogito ergo sum](https://gist.github.com/1afacb7b662cfbfd0624e52c6425ceee)
 - [Vim logo](https://gist.github.com/5611986)
 - [querySelector.js](https://gist.github.com/f9029e6236a7c2a03203)
@@ -51,12 +51,12 @@ content `🅖-datalist`
 
 -----
 
-## Appearance `🅖-collapsible`
+## Appearance `🅑-collapsible`
 
-css `🅖-datalist`
+css `🅑-datalist`
 - [Dark Glow](https://gist.github.com/c6d0a4d16b627d72563b43b60a164c31)
 
-font-effect `🅖-select`
+font-effect `🅑-select`
 - *None
 - 3d
 - 3d Float
@@ -86,51 +86,51 @@ font-effect `🅖-select`
 - Vintage
 - Wallpaper
 
-`🅖-theme-variables`
+`🅑-theme-variables`
 
-## Effects `🅖-collapsible`
+## Effects `🅑-collapsible`
 
-tiltshift `🅖-select`
+tiltshift `🅑-select`
 - None
 - *Elegant
 - Extreme
 
-svg-filter `🅖-select`
+svg-filter `🅑-select`
 - *None
 
 -----
 
-brightness `🅖-slider="1,0,3,0.05"`
-contrast `🅖-slider="100%,0,300,1,%"`
-grayscale `🅖-slider="0%,0,100,1,%"`
-hue-rotate `🅖-slider="0deg,0,360,1,deg"`
-invert `🅖-slider="0%,0,100,1,%"`
-saturate `🅖-slider="100%,0,300,1,%"`
-sepia `🅖-slider="0%,0,100,1,%"`
-blur `🅖-slider="0px,0,20,1,px"`
+brightness `🅑-slider="1,0,3,0.05"`
+contrast `🅑-slider="100%,0,300,1,%"`
+grayscale `🅑-slider="0%,0,100,1,%"`
+hue-rotate `🅑-slider="0deg,0,360,1,deg"`
+invert `🅑-slider="0%,0,100,1,%"`
+saturate `🅑-slider="100%,0,300,1,%"`
+sepia `🅑-slider="0%,0,100,1,%"`
+blur `🅑-slider="0px,0,20,1,px"`
 
-## Perspective `🅖-collapsible`
+## Perspective `🅑-collapsible`
 
-scale `🅖-slider="0,1,5,0.1"`
-perspective `🅖-slider="800px,0,2000,1,px"`
-originx `🅖-slider="50%,0,100,1,%"`
-originy `🅖-slider="50%,0,100,1,%"`
-rotatex `🅖-slider="20deg,0,360,1,deg"`
-rotatey `🅖-slider="10deg,0,360,1,deg"`
-scalez `🅖-slider="0,1,5,0.1"`
-rotatez `🅖-slider="0deg,0,360,1,deg"`
-translatez `🅖-slider="0px,-500,500,1,px"`
+scale `🅑-slider="0,1,5,0.1"`
+perspective `🅑-slider="800px,0,2000,1,px"`
+originx `🅑-slider="50%,0,100,1,%"`
+originy `🅑-slider="50%,0,100,1,%"`
+rotatex `🅑-slider="20deg,0,360,1,deg"`
+rotatey `🅑-slider="10deg,0,360,1,deg"`
+scalez `🅑-slider="0,1,5,0.1"`
+rotatez `🅑-slider="0deg,0,360,1,deg"`
+translatez `🅑-slider="0px,-500,500,1,px"`
 
-## Dimensions `🅖-collapsible`
+## Dimensions `🅑-collapsible`
 
-width `🅖-slider="60ch,4,400,1,ch"`
-padding `🅖-slider="1ch,0,100,1,ch"`
-inner-space `🅖-slider="10ch,0,300,1,ch"`
-outer-space `🅖-slider="0ch,0,1000,1,ch"`
-offsetx `🅖-slider="0px,-4000,4000,1,px"`
-offsety `🅖-slider="0px,-4000,4000,1,px"`
+width `🅑-slider="60ch,4,400,1,ch"`
+padding `🅑-slider="1ch,0,100,1,ch"`
+inner-space `🅑-slider="10ch,0,300,1,ch"`
+outer-space `🅑-slider="0ch,0,1000,1,ch"`
+offsetx `🅑-slider="0px,-4000,4000,1,px"`
+offsety `🅑-slider="0px,-4000,4000,1,px"`
 
-## Presets `🅖-collapsible`
+## Presets `🅑-collapsible`
 
 Ready-made templates:
 - [Wood Vim Engraved](?content=5611986&css=e9dc237da3d9bda63302fe4b659c20b5&highlight=agate&fontsize=160&font=fira-mono&brightness=0.9&contrast=160&saturate=141&perspective=1017&originY=20&rotateY=347&translateZ=-130&heading-font=unifrakturmaguntia&tiltshift=none&svg-filter=Bump%20Engraving-filter53&vignette=1&offsetX=-496&offsetY=-14) - High contrast ASCII set on wood backdrop.
@@ -150,7 +150,7 @@ Ready-made templates:
 - [The Grid](?content=9ef934473e4cf4d50d8b06d2598b24d1&css=e27b284231488b349f35786f6340096a&bg=chocolate&svg-filter=Glowing%20Metal-f044&vignette=0.3&brightness=1.2&contrast=164&hue-rotate=45&invert=100&saturate=57&sepia=52&scale=1.3&perspective=792&rotateX=12&rotateZ=360&translateZ=199&padding=12&offsetX=203&offsetY=284) - Top secret coordinates to the heavens.
 - [Senseless Vibrance](?content=2c928108d1fa87ab4462fad9be99ebec&css=a634da7b7130fd40d682360154cc4e2e&highlight=kimbie-dark&font-effect=3d&tiltshift=extreme&vignette=0.35&offsetX=340&offsetY=280&bg=darkmagenta&fontsize=232&font=fira-code-iscript&brightness=1.6&contrast=198&saturate=100&rotateX=6&rotateZ=6&translateZ=90) - So pointless, no sense to it. Simple abuse of contrast in a digital world.
 
-## Help `🅖-group`
+## Help `🅑-group`
 
-`🅖-help="https://github.com/ugotsta/code-glory/#code-glory"`
-`🅖-hide`
+`🅑-help="https://github.com/ugotsta/code-glory/#code-glory"`
+`🅑-hide`

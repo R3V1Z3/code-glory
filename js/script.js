@@ -1,4 +1,4 @@
-class CodeGlory extends GitDown {
+class CodeGlory extends BreakDown {
 
     constructor(el, options) {
         super(el, options);
@@ -45,7 +45,7 @@ class CodeGlory extends GitDown {
             div.id = 'svg';
             div.innerHTML = data;
             document.body.insertBefore(div, document.body.childNodes[0]);
-    
+
             let select = this.wrapper.querySelector('.nav .select.svg-filter select');
             if ( select !== null ) {
                 let filters = document.querySelectorAll('#svg defs filter');
@@ -82,7 +82,7 @@ class CodeGlory extends GitDown {
         let svg = this.settings.getValue('svg-filter');
         let fx = document.querySelector('.fx');
         if ( fx === null ) return;
-    
+
         let style = `
             brightness(var(--brightness))
             contrast(var(--contrast))
@@ -131,7 +131,7 @@ class CodeGlory extends GitDown {
         let $s = $('section');
         let $fx = $('.fx');
         let $inner = $('.inner');
-        
+
         // store $inner dimensions for use later, if not already set
         if( $inner.getAttribute('data-width') === null ) {
             $inner.setAttribute('data-width', $inner.offsetWidth);
@@ -178,17 +178,17 @@ class CodeGlory extends GitDown {
 
         if ( this.status.has('app-events-registered') ) return;
         else this.status.add('app-events-registered');
-    
+
         window.addEventListener( 'resize', e => this.centerView().bind(this) );
-    
+
         this.events.add('.nav .collapsible.effects .field.slider input', 'input', this.centerView.bind(this) );
         this.events.add('.nav .collapsible.dimensions .field.slider input', 'input', this.centerView.bind(this) );
         this.events.add('.nav .field.slider.fontsize input', 'input', this.centerView.bind(this) );
         this.events.add('.nav .field.slider.vignette input', 'input', this.vignette.bind(this));
-    
+
         let f = document.querySelector('.nav .field.select.svg-filter select');
         f.addEventListener( 'change', this.svgChange.bind(this) );
-    
+
         // mousewheel zoom handler
         this.events.add('.inner', 'wheel', e => {
             // disallow zoom within parchment content so user can safely scroll text
@@ -205,7 +205,7 @@ class CodeGlory extends GitDown {
             this.settings.setValue('translatez', v);
             this.updateSliderValue( 'translatez', v );
         }, this );
-    
+
         interact(this.eidInner)
         .gesturable({
             onmove: function (event) {
@@ -216,9 +216,9 @@ class CodeGlory extends GitDown {
             }
         })
         .draggable({ onmove: this.dragMoveListener.bind(this) });
-    
+
     }
-    
+
     dragMoveListener (event) {
         let target = event.target;
         if ( !target.classList.contains('inner') ) return;
@@ -229,20 +229,20 @@ class CodeGlory extends GitDown {
         let y = (parseFloat(target.getAttribute('data-y')) || 0);
         let oldY = y;
         y += event.dy;
-    
+
         // when middle mouse clicked and no movement, reset offset positions
         if ( event.buttons === 4 ) {
             x = this.settings.getDefault('offsetx');
             y = this.settings.getDefault('offsety');
         }
-        
+
         this.updateSliderValue( 'offsetx', x );
         this.updateSliderValue( 'offsety', y );
-        
+
         // update the position attributes
         target.setAttribute('data-x', x);
         target.setAttribute('data-y', y);
-    
+
         this.centerView();
     }
 
@@ -267,8 +267,8 @@ class CodeGlory extends GitDown {
 //     var v = $(`.nav .field.select.${type} select`).val().toLowerCase();
 //     // remove existing classes first
 //     console.log(type, v);
-//     removeClassByPrefix( gd.eid + ' .code', type );
-//     removeClassByPrefix( gd.eid + ' .code-overlay', type );
+//     removeClassByPrefix( bd.eid + ' .code', type );
+//     removeClassByPrefix( bd.eid + ' .code-overlay', type );
 //     if ( v !== 'none' || v !== null ) {
 //         $('.code').addClass(`${type}-${v}`);
 //         $('.code-overlay').addClass(`${type}-${v}`);
