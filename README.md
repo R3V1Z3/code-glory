@@ -90,6 +90,8 @@ font-effect `🅑-select`
 
 ## Effects `🅑-collapsible`
 
+vignette `🅑-slider="1,0,3,0.05"`
+
 tiltshift `🅑-select`
 - None
 - *Elegant
@@ -134,9 +136,9 @@ offsety `🅑-slider="0px,-4000,4000,1,px"`
 
 Ready-made templates:
 - [Wood Vim Engraved](?content=5611986&css=e9dc237da3d9bda63302fe4b659c20b5&highlight=agate&fontsize=160&font=fira-mono&brightness=0.9&contrast=160&saturate=141&perspective=1017&originY=20&rotateY=347&translateZ=-130&heading-font=unifrakturmaguntia&tiltshift=none&svg-filter=Bump%20Engraving-filter53&vignette=1&offsetX=-496&offsetY=-14) - High contrast ASCII set on wood backdrop.
-- [The Digital Plain](?highlight=none&perspective=435&translatex=-820&css=a634da7b7130fd40d682360154cc4e2e&brightness=0.8&contrast=200&hue-rotate=279&rotatex=7&content=9ef934473e4cf4d50d8b06d2598b24d1&vignette=0.275&rotatez=338&scale=1.5&rotatey=0&scalez=1&tiltshift=elegant&saturate=100&rotateZ=330&translateZ=-50&translatez=25&rotateX=6&rotateY=3&font=oxygen-mono&grayscale=0&invert=0&sepia=0&blur=0&padding=0&offsetX=732&offsetY=23) - Seeminly endless plain of digital beauty.
+- [The Digital Plain](?content=9ef934473e4cf4d50d8b06d2598b24d1&css=a634da7b7130fd40d682360154cc4e2e&highlight=arduino-light&perspective=435&translatex=-820&brightness=0.8&contrast=200&rotatex=25&vignette=0.275&rotatez=338&scale=1.5&rotatey=3&translatez=-343&padding=0&offsetx=71&offsety=-224&bg=Chocolate&color=initial&fontsize=150&width=68&inner-space=60&originy=44) - Seeminly endless plain of digital beauty.
 - [Flourescence](?highlight=hopscotch&tiltshift=elegant&vignette=0.5&brightness=2.5&contrast=205&scale=0.9&perspective=1500&rotatex=344&rotatey=352&scalez=1&rotatez=10&translatez=0&bg=cornsilk&fontsize=178&rotateX=344&rotateY=352&scaleZ=1&rotateZ=10&translateZ=0&content=ff9e36538de06b6a0b40a96252d58dc5&css=c6d0a4d16b627d72563b43b60a164c31&primary-color=slategrey&offsetX=-120&offsetY=200) - Dark theme with vivid highlights.
-- [Tron 0.5](?content=7c3c43ebee017e4b8a743e391c1acfd4&css=adc373c2d5a5d2b07821686e93a9630b&bg=darkcyan&tiltshift=extreme&brightness=1.25&contrast=179&perspective=932&rotateX=14&rotateY=10&rotateZ=351&translateZ=25&offsetX=106&offsetY=-120) - Vibrant, Tron-like tech theme.
+- [Tron 0.5](?content=7c3c43ebee017e4b8a743e391c1acfd4&css=adc373c2d5a5d2b07821686e93a9630b&bg=darkcyan&brightness=1.05&contrast=150&perspective=932&rotatex=14&rotatez=351&translatez=-160&offsetx=86&offsety=-132&width=90&fontsize=150&vignette=0.15&tiltshift=Extreme) - Vibrant, Tron-like tech theme.
 - [Old West](?content=8665367&css=76c39d26b1b44e07bd7a783311caded8&highlight=brown-paper&font-effect=canvas-print&tiltshift=none&vignette=0.375&brightness=1.1&contrast=151&saturate=66&scale=2.4&perspective=451&rotatex=342&rotatey=0&translatez=30&padding=15&fontsize=130&font=fira-code-iscript&inner-space=0&width=48) - Codin' done that old fashioned typewrited way.
 - [Scribbled Code](?content=ff9e36538de06b6a0b40a96252d58dc5&css=77b1f66ad5093c2db29c666ad15f334d&highlight=arduino-light&font-effect=canvas-print&tiltshift=none&vignette=0.175&contrast=101&saturate=99&sepia=28&perspective=2000&rotateX=348&rotateY=10&scaleZ=1&rotateZ=10&offsetX=29&offsetY=206) - Scribbled notes on aged graph paper.
 - [Archaic Tech](?content=bcd81019340cb164191ef02db16be218&css=e27b284231488b349f35786f6340096a&font=fira-code-iscript&tiltshift=none&vignette=1&brightness=1.5&contrast=90&saturate=70&sepia=20&perspective=1133&rotatex=35&rotatey=3&rotatez=7&translatez=-188&offsetx=-17&offsety=-193&bg=darkcyan&width=78&inner-space=110) - That old tablet got lost in the omniverse.

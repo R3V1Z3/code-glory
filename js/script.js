@@ -5,12 +5,24 @@ class CodeGlory extends BreakDown {
     }
 
     ready() {
+        // delete overlay if it exists
+        let overlay = document.querySelector('.code-overlay');
+        if (overlay !== null) ( overlay.parentNode.removeChild(overlay) );
         if ( !this.status.has('changed') ) {
             this.updateOffsets();
             this.extractSvg('filters.svg');
             this.addFx();
             this.vignette();
         }
+        const code = document.querySelector('code');
+        overlay = code.cloneNode(true);
+        // add classes
+        code.classList.add('code');
+        overlay.classList.add('code-overlay');
+        code.parentNode.appendChild(overlay);
+        this.fonteffect();
+        this.tiltshift();
+        
         if ( this.status.has('content-changed') ) {
             //this.updateFromParams();
         }
@@ -28,7 +40,7 @@ class CodeGlory extends BreakDown {
         if ( code === null ) return;
         code = code.textContent;
         code.split('\n').forEach( l => {
-            if ( l.length > w ) w = l.length + 1;
+            if ( l.length > w ) w = l.length + 10;
         });
         // update width slider
         this.updateSliderValue('width', w);
@@ -114,6 +126,35 @@ class CodeGlory extends BreakDown {
         if ( vignette !== null ) vignette.style.backgroundImage = bg;
     }
 
+    tiltshift() {
+        this.updateOverlayClass('tiltshift');
+    }
+
+    fonteffect() {
+        this.updateOverlayClass('font-effect');
+    }
+
+    removeCodeClassByPrefix( element, prefix ) {
+        const el = document.querySelector(element);
+        if ( el === null ) return;
+        var classes = el.classList;
+        for( var c of classes ) {
+            if ( c.startsWith(prefix) ) el.classList.remove(c);
+        }
+    }
+
+    updateOverlayClass(type) {
+        let v = this.settings.getValue(type).toLowerCase().replace(" ", "-");
+        this.removeCodeClassByPrefix( this.eid + ' .code', type );
+        this.removeCodeClassByPrefix( this.eid + ' .code-overlay', type );
+        if ( v !== 'none' || v !== null ) {
+            let el = document.querySelector(this.eid + ' .code');
+            el.classList.add(`${type}-${v}`);
+            el = document.querySelector(this.eid + ' .code-overlay');
+            el.classList.add(`${type}-${v}`);
+        }
+    }
+
     updateOffsets() {
         this.inner.setAttribute( 'data-x', this.settings.getValue('offsetX') );
         this.inner.setAttribute( 'data-y', this.settings.getValue('offsetY') );
@@ -186,8 +227,14 @@ class CodeGlory extends BreakDown {
         this.events.add('.nav .field.slider.fontsize input', 'input', this.centerView.bind(this) );
         this.events.add('.nav .field.slider.vignette input', 'input', this.vignette.bind(this));
 
+        // handle svg filter, then tiltshift and font-effect
         let f = document.querySelector('.nav .field.select.svg-filter select');
         f.addEventListener( 'change', this.svgChange.bind(this) );
+
+        f = document.querySelector('.nav .field.select.tiltshift select');
+        f.addEventListener( 'change', this.tiltshift.bind(this) );
+        f = document.querySelector('.nav .field.select.font-effect select');
+        f.addEventListener( 'change', this.fonteffect.bind(this) );
 
         // mousewheel zoom handler
         this.events.add('.inner', 'wheel', e => {
@@ -247,39 +294,3 @@ class CodeGlory extends BreakDown {
     }
 
 }
-
-
-//         $('.code-overlay').show();
-
-//         updateClass('tiltshift');
-//         updateClass('font-effect');
-
-// function removeClassByPrefix( element, prefix ) {
-//     const el = document.querySelector(element);
-//     if ( el === null ) return;
-//     var classes = el.classList;
-//     for( var c of classes ) {
-//         if ( c.startsWith(prefix) ) el.classList.remove(c);
-//     }
-// }
-
-// function updateClass(type) {
-//     var v = $(`.nav .field.select.${type} select`).val().toLowerCase();
-//     // remove existing classes first
-//     console.log(type, v);
-//     removeClassByPrefix( bd.eid + ' .code', type );
-//     removeClassByPrefix( bd.eid + ' .code-overlay', type );
-//     if ( v !== 'none' || v !== null ) {
-//         $('.code').addClass(`${type}-${v}`);
-//         $('.code-overlay').addClass(`${type}-${v}`);
-//     }
-// }
-
-
-//     $('.nav .field.select.tiltshift select').change(function() {
-//         updateClass('tiltshift');
-//     });
-
-//     $('.nav .field.select.font-effect select').change(function() {
-//         updateClass('font-effect');
-//     });
