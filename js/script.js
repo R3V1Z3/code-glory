@@ -5,30 +5,23 @@ class CodeGlory extends BreakDown {
     }
 
     ready() {
-        // delete overlay if it exists
-        let overlay = document.querySelector('.code-overlay');
-        if (overlay !== null) ( overlay.parentNode.removeChild(overlay) );
         if ( !this.status.has('changed') ) {
             this.updateOffsets();
             this.extractSvg('filters.svg');
             this.addFx();
             this.vignette();
         }
-        const code = document.querySelector('code');
-        overlay = code.cloneNode(true);
-        // add classes
-        code.classList.add('code');
-        overlay.classList.add('code-overlay');
-        code.parentNode.appendChild(overlay);
+        this.createOverlay();
         this.fonteffect();
         this.tiltshift();
-        
+
         if ( this.status.has('content-changed') ) {
             //this.updateFromParams();
         }
 
         this.updateWidthFromContent('pre code');
         this.centerView();
+        // events for vignette, tiltshift and fonteffect are somehow voided when content changes
         this.registerAppEvents();
         this.updateSliderValue( 'outer-space', this.settings.getValue('outer-space') );
         this.centerView();
@@ -44,6 +37,16 @@ class CodeGlory extends BreakDown {
         });
         // update width slider
         this.updateSliderValue('width', w);
+    }
+
+    createOverlay() {
+      let overlay = document.querySelector('.code-overlay');
+      if (overlay !== null) ( overlay.parentNode.removeChild(overlay) );
+      const code = document.querySelector('code');
+      overlay = code.cloneNode(true);
+      code.classList.add('code');
+      overlay.classList.add('code-overlay');
+      code.parentNode.appendChild(overlay);
     }
 
     extractSvg(filename) {
@@ -216,25 +219,19 @@ class CodeGlory extends BreakDown {
     }
 
     registerAppEvents() {
+        this.events.add( '.nav .field.select.svg-filter select', 'change', this.svgChange.bind(this) );
+        this.events.add( '.nav .field.select.tiltshift select', 'change', this.tiltshift.bind(this) );
+        this.events.add( '.nav .field.select.font-effect select', 'change', this.fonteffect.bind(this) );
 
         if ( this.status.has('app-events-registered') ) return;
         else this.status.add('app-events-registered');
 
         window.addEventListener( 'resize', e => this.centerView().bind(this) );
 
-        this.events.add('.nav .collapsible.effects .field.slider input', 'input', this.centerView.bind(this) );
-        this.events.add('.nav .collapsible.dimensions .field.slider input', 'input', this.centerView.bind(this) );
-        this.events.add('.nav .field.slider.fontsize input', 'input', this.centerView.bind(this) );
-        this.events.add('.nav .field.slider.vignette input', 'input', this.vignette.bind(this));
-
-        // handle svg filter, then tiltshift and font-effect
-        let f = document.querySelector('.nav .field.select.svg-filter select');
-        f.addEventListener( 'change', this.svgChange.bind(this) );
-
-        f = document.querySelector('.nav .field.select.tiltshift select');
-        f.addEventListener( 'change', this.tiltshift.bind(this) );
-        f = document.querySelector('.nav .field.select.font-effect select');
-        f.addEventListener( 'change', this.fonteffect.bind(this) );
+        this.events.add( '.nav .collapsible.effects .field.slider input', 'input', this.centerView.bind(this) );
+        this.events.add( '.nav .collapsible.dimensions .field.slider input', 'input', this.centerView.bind(this) );
+        this.events.add( '.nav .field.slider.fontsize input', 'input', this.centerView.bind(this) );
+        this.events.add( '.nav .field.slider.vignette input', 'input', this.vignette.bind(this) );
 
         // mousewheel zoom handler
         this.events.add('.inner', 'wheel', e => {

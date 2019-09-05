@@ -135,6 +135,7 @@ offsety `🅑-slider="0px,-4000,4000,1,px"`
 ## Presets `🅑-collapsible`
 
 Ready-made templates:
+- [Cogito](?content=1afacb7b662cfbfd0624e52c6425ceee&highlight=foundation&fontsize=150&width=50&originy=62&rotatez=343&translatez=-141&tiltshift=Extreme&offsetx=286&offsety=-269&bg=Ivory&vignette=0.5) - Minimalism with soft vignette.
 - [Wood Vim Engraved](?content=5611986&css=e9dc237da3d9bda63302fe4b659c20b5&highlight=agate&fontsize=160&font=fira-mono&brightness=0.9&contrast=160&saturate=141&perspective=1017&originY=20&rotateY=347&translateZ=-130&heading-font=unifrakturmaguntia&tiltshift=none&svg-filter=Bump%20Engraving-filter53&vignette=1&offsetX=-496&offsetY=-14) - High contrast ASCII set on wood backdrop.
 - [The Digital Plain](?content=9ef934473e4cf4d50d8b06d2598b24d1&css=a634da7b7130fd40d682360154cc4e2e&highlight=arduino-light&perspective=435&translatex=-820&brightness=0.8&contrast=200&rotatex=25&vignette=0.275&rotatez=338&scale=1.5&rotatey=3&translatez=-343&padding=0&offsetx=71&offsety=-224&bg=Chocolate&color=initial&fontsize=150&width=68&inner-space=60&originy=44) - Seeminly endless plain of digital beauty.
 - [Flourescence](?highlight=hopscotch&tiltshift=elegant&vignette=0.5&brightness=2.5&contrast=205&scale=0.9&perspective=1500&rotatex=344&rotatey=352&scalez=1&rotatez=10&translatez=0&bg=cornsilk&fontsize=178&rotateX=344&rotateY=352&scaleZ=1&rotateZ=10&translateZ=0&content=ff9e36538de06b6a0b40a96252d58dc5&css=c6d0a4d16b627d72563b43b60a164c31&primary-color=slategrey&offsetX=-120&offsetY=200) - Dark theme with vivid highlights.

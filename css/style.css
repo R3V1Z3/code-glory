@@ -17,7 +17,7 @@
   --bg: cornsilk;
   --color: black;
   --font: 'Fira Code iScript', monospace;
-  --fontsize: 100%;
+  --fontsize: 130%;
   --highlight: none;
 
   --width: 60ch;
@@ -220,19 +220,21 @@ html, body, #wrapper, .container {
 /* tiltshift styles */
 
 .code.tiltshift-elegant {
-  -webkit-mask-box-image: linear-gradient(transparent 0%, black 30%, black 50%, black 70%, transparent 100%);
+  display: block;
+  filter: none;
+  -webkit-mask-box-image: linear-gradient(transparent 0%, transparent 20%, black 50%, transparent 80%, transparent 100%);
 }
 
 .code-overlay.tiltshift-elegant {
   display: block;
-  filter: blur(2px);
-  -webkit-mask-box-image: linear-gradient(black 0%, transparent 50%, black 100%);
+  filter: blur(1px);
+  -webkit-mask-box-image: linear-gradient(black 0%, transparent 40%, transparent 50%, transparent 60%, black 100%);
 }
 
 .code.tiltshift-extreme {
   display: block;
   filter: none;
-  -webkit-mask-box-image: linear-gradient(transparent 0%, black 30%, black 50%, black 70%, transparent 100%);
+  -webkit-mask-box-image: linear-gradient(transparent 0%, transparent 20%, black 50%, transparent 80%, transparent 100%);
 }
 
 .code-overlay.tiltshift-extreme {
@@ -244,8 +246,8 @@ html, body, #wrapper, .container {
 .code-overlay {
   display: none;
   position: absolute;
-  top: 4px;
-  left: -2px;
+  top: 6px;
+  left: 0px;
   background: none;
   pointer-events: none;
 }
