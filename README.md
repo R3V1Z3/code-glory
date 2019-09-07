@@ -20,7 +20,7 @@ Check the intro [video](https://www.youtube.com/watch?v=GPVvSEkA90o).
 ## Usage
 
 - Post your code for free on [GitHub Gist](https://gist.github.com).
-- Paste the URL or ID in the Gist box.
+- Paste the URL or ID in the Content field.
 
 # 🅲🅾🅳🅴𝒢𝓁𝑜𝓇𝓎 `🅑-nav`
 
@@ -146,9 +146,7 @@ Ready-made templates:
 - [Laminated Glory](?content=83ccf018e834b68cfa1f8d33510642a7&css=e9dc237da3d9bda63302fe4b659c20b5&highlight=gruvbox-light&font=fira-code-iscript&svg-filter=Silk%20Carpet-f053&vignette=0&brightness=1.1&contrast=114&grayscale=32&hue-rotate=187&invert=100&saturate=116&scale=2.32&perspective=1163&scaleZ=1&offsetX=457&offsetY=355&fontsize=300) - Silky,laminated wood up close.
 - [Voxel](?content=950790&highlight=ir-black&font=roboto-mono&font-effect=3d&vignette=0.65&brightness=1.1&contrast=147&scale=1.25&perspective=1506&rotateX=14&rotateY=7&scaleZ=1&rotateZ=4&offsetX=140&offsetY=180&bg=indianred) - Isometric view with vibrant colors akin to those in voxel videogames.
 - [Basically](?content=399b69445ae646c0160d644db08f5ed9&css=adc373c2d5a5d2b07821686e93a9630b&highlight=grayscale&font=fira-code-iscript&scale=1.41&rotateX=15&rotateY=3&scaleZ=1&rotateZ=10&padding=2&offsetX=100&offsetY=264&bg=cornsilk&offsetx=22&offsety=280) - Elegant, minimalist theme using mostly default settings.
-- [Monochrome](?content=2c928108d1fa87ab4462fad9be99ebec&css=51aa23d96f9bd81fe55c47b2d51855a5&highlight=none&bg=aqua&fontsize=120&tiltshift=none&svg-filter=Litho-filter169&vignette=0.875&brightness=0.85&contrast=300&rotateX=0&rotateY=0&rotateZ=0&padding=1) - Classic monochrome monitor style display complete with dithered pixels.
-- [Nyanyan](?content=3062237&css=c6d0a4d16b627d72563b43b60a164c31&highlight=xcode&font=anonymous-pro&font-effect=3d&tiltshift=extreme&svg-filter=Hue%20to%20White-f182&vignette=0.925&brightness=1.65&contrast=137&scale=1.55&rotateX=0&rotateY=0&rotateZ=348&offsetX=391&offsetY=188&fontsize=75) - Dark backdrop accented by bright foreground colors.
-- [c0d3 l33t](?content=1afacb7b662cfbfd0624e52c6425ceee&css=a634da7b7130fd40d682360154cc4e2e&highlight=arta&font=cousine&tiltshift=none&svg-filter=Neon-f038&vignette=0.675&brightness=0.55&contrast=300&hue-rotate=153&perspective=411&rotateX=352&scaleZ=1&offsetX=285&offsetY=121&fontsize=137) - Scanline effect with bloom-like filter.
+- [Nyanyan](?content=3062237&css=c6d0a4d16b627d72563b43b60a164c31&highlight=xcode&font=anonymous-pro&font-effect=3d&tiltshift=extreme&svg-filter=Hue%20to%20White-f182&vignette=0.925&brightness=1.65&contrast=137&scale=1.55&rotatex=0&rotatey=0&rotatez=348&offsetx=-135&offsety=44&fontsize=75&width=112&inner-space=180&translatez=-176) - Dark backdrop accented by bright foreground colors.
 - [The Grid](?content=9ef934473e4cf4d50d8b06d2598b24d1&css=e27b284231488b349f35786f6340096a&bg=chocolate&svg-filter=Glowing%20Metal-f044&vignette=0.3&brightness=1.2&contrast=164&hue-rotate=45&invert=100&saturate=57&sepia=52&scale=1.3&perspective=792&rotatex=12&rotatez=360&translatez=199&padding=12&offsetx=114&offsety=10&width=75) - Top secret coordinates to the heavens.
 - [NeoVIM Brilliance](?content=2c928108d1fa87ab4462fad9be99ebec&css=a634da7b7130fd40d682360154cc4e2e&highlight=kimbie-dark&font-effect=3d&vignette=0.7&offsetx=283&offsety=159&bg=darkmagenta&fontsize=232&font=fira-code-iscript&brightness=1.6&contrast=198&rotatex=6&rotatez=6&translatez=90&width=70&inner-space=50&hue-rotate=335) - Brilliant code demands brilliant visuals.
 
