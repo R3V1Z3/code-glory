@@ -147,6 +147,7 @@ class CodeGlory extends BreakDown {
     }
 
     updateOverlayClass(type) {
+        console.log(type, this.settings.getValue(type));
         let v = this.settings.getValue(type).toLowerCase().replace(" ", "-");
         this.removeCodeClassByPrefix( this.eid + ' .code', type );
         this.removeCodeClassByPrefix( this.eid + ' .code-overlay', type );
