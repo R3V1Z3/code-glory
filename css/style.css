@@ -20,7 +20,8 @@
   --fontsize: 130%;
   --highlight: none;
 
-  --width: 60ch;
+  --width: 80ch;
+  --width: 25ch;
   --padding: 1ch;
   --inner-space: 10ch;
   --outer-space: 0ch;

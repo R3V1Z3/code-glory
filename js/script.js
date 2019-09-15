@@ -29,14 +29,19 @@ class CodeGlory extends BreakDown {
 
     updateWidthFromContent(el) {
         let w = 0;
+        let h = 0;
         let code = this.wrapper.querySelector('pre code');
         if ( code === null ) return;
         code = code.textContent;
         code.split('\n').forEach( l => {
-            if ( l.length > w ) w = l.length + 10;
+            if ( l.length > w ) w = l.length;
+            h++;
         });
+        // slight hack for varying font metrics, not optimal but works
+        w = w * 1.125;
         // update width slider
         this.updateSliderValue('width', w);
+        this.updateSliderValue('height', h);
     }
 
     createOverlay() {
@@ -177,12 +182,6 @@ class CodeGlory extends BreakDown {
         let $fx = $('.fx');
         let $inner = $('.inner');
 
-        // store $inner dimensions for use later, if not already set
-        if( $inner.getAttribute('data-width') === null ) {
-            $inner.setAttribute('data-width', $inner.offsetWidth);
-            $inner.setAttribute('data-height', $inner.offsetHeight);
-        }
-
         let ispace = parseInt( this.settings.getValue('inner-space') );
         let ospace = parseInt( this.settings.getValue('outer-space') );
 
@@ -210,12 +209,21 @@ class CodeGlory extends BreakDown {
         `;
         let w = parseInt( this.settings.getValue('width') );
         let h = parseInt( this.settings.getValue('height') );
+        let p = parseInt( this.settings.getValue('padding') );
 
-        $inner.style.width = 100 + w + ispace + ospace + 'ch';
-        $inner.style.height = 100 + h + ispace + ospace + 'ch';
+        // update dimensions based on ch measurement
+        $inner.style.width = 100 + w + ispace + ospace + p + 'ch';
+        $inner.style.height = 100 + h + ispace + ospace + p + 'ch';
 
-        $fx.style.width = $inner.offsetWidth + 'px';
-        $fx.style.height = $inner.offsetHeight + 'px';
+        // now get dimensions as calculated by browser in px measurement
+        w = $inner.offsetWidth;
+        h = $inner.offsetHeight;
+
+        console.log('AFTER | w: ' + w, '  h: ' + h);
+
+        // apply offset dimensions to fx layer so it grows with inner content
+        $fx.style.width = w + 'px';
+        $fx.style.height = h + 'px';
         $fx.style.transform = transform;
     }
 

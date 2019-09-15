@@ -126,6 +126,7 @@ scalez `🅑-slider="0,1,5,0.1"`
 ## Dimensions `🅑-collapsible`
 
 width `🅑-slider="60ch,4,400,1,ch"`
+height `🅑-slider="25ch,4,400,1,ch"`
 padding `🅑-slider="1ch,0,100,1,ch"`
 inner-space `🅑-slider="10ch,0,300,1,ch"`
 outer-space `🅑-slider="0ch,0,1000,1,ch"`
@@ -138,7 +139,7 @@ Ready-made templates:
 - [Cogito](?content=1afacb7b662cfbfd0624e52c6425ceee&highlight=foundation&fontsize=150&width=50&originy=62&rotatez=343&translatez=-141&tiltshift=elegant&offsetx=286&offsety=-269&bg=Ivory&vignette=0.5) - Minimalism with soft vignette.
 - [ArtsASCII Artist](?content=9c6043905e891bd2423af86d09bd950c&css=adc373c2d5a5d2b07821686e93a9630b&font-effect=3d&vignette=0.7&offsetx=-85&offsety=191&tiltshift=None&font=Cutive%20Mono&color=Azure&width=27&padding=15&inner-space=0&rotatex=5&rotatez=350&translatez=429&bg=MediumSlateBlue&fontsize=150&svg-filter=Cross%20Noise-f205&contrast=120) - Pseudo 3D styling for @ArtsASCII art.
 - [Wood Vim Plastered](?content=5611986&css=e9dc237da3d9bda63302fe4b659c20b5&highlight=agate&fontsize=160&font=fira-mono&brightness=1.1&contrast=300&saturate=141&perspective=1017&originy=20&rotatey=347&translatez=-500&tiltshift=none&svg-filter=Plaster%20Color-f123&offsetx=-167&offsety=-26&width=51) - Vim ASCII art plastered in wood backdrop.
-- [The Digital Plain](?content=9ef934473e4cf4d50d8b06d2598b24d1&css=a634da7b7130fd40d682360154cc4e2e&perspective=435&translatex=-820&brightness=0.8&contrast=173&rotatex=25&vignette=0.7&rotatez=338&scale=1.5&rotatey=3&translatez=-343&padding=0&offsetx=71&offsety=-224&bg=HotPink&color=initial&fontsize=150&width=75&inner-space=60&originy=44&saturate=228&font-effect=Scuffed%20Steel) - Seeminly endless plain of digital beauty.
+- [The Digital Plain](?content=9ef934473e4cf4d50d8b06d2598b24d1&css=a634da7b7130fd40d682360154cc4e2e&perspective=774&translatex=-820&brightness=0.8&contrast=173&rotatex=29&vignette=0.7&rotatez=343&scale=1.5&rotatey=0&translatez=-500&padding=0&offsetx=211&offsety=-211&bg=HotPink&color=initial&fontsize=216&width=72&inner-space=60&originy=44&saturate=228&font-effect=Scuffed%20Steel&originx=45&scalez=1.7&height=101) - Seemingly endless plain of digital beauty.
 - [Flourescence](?highlight=hopscotch&tiltshift=elegant&vignette=0.5&brightness=2.5&contrast=205&scale=0.9&perspective=1500&rotatex=344&rotatey=352&scalez=1&rotatez=10&translatez=0&bg=cornsilk&fontsize=178&rotateX=344&rotateY=352&scaleZ=1&rotateZ=10&translateZ=0&content=ff9e36538de06b6a0b40a96252d58dc5&css=c6d0a4d16b627d72563b43b60a164c31&primary-color=slategrey&offsetX=-120&offsetY=200) - Dark theme with vivid highlights.
 - [Tron 0.5](?content=7c3c43ebee017e4b8a743e391c1acfd4&css=adc373c2d5a5d2b07821686e93a9630b&bg=darkcyan&brightness=1.05&contrast=150&perspective=932&rotatex=14&rotatez=351&translatez=-160&offsetx=86&offsety=-132&width=90&fontsize=150&vignette=0.15&tiltshift=Extreme&font-effect=3d) - Vibrant, Tron-like tech theme.
 - [Old West](?content=8665367&css=76c39d26b1b44e07bd7a783311caded8&highlight=brown-paper&font-effect=canvas-print&tiltshift=none&vignette=0.55&brightness=1.1&contrast=151&saturate=66&scale=2.4&perspective=451&rotatex=342&rotatey=0&translatez=-40&padding=25&font=fira-code-iscript&inner-space=200&width=78&offsetx=151&offsety=40) - Codin' done that old fashioned typewrited way.
