@@ -1,3 +1,6 @@
+// todo
+// width paramater is always displayed in url
+// it's the only value displayed there
 class CodeGlory extends BreakDown {
 
     constructor(el, options) {
@@ -19,7 +22,7 @@ class CodeGlory extends BreakDown {
             //this.updateFromParams();
         }
 
-        this.updateWidthFromContent('pre code');
+        this.updateSizeFromContent('pre code');
         this.centerView();
         // events for vignette, tiltshift and fonteffect are somehow voided when content changes
         this.registerAppEvents();
@@ -27,7 +30,7 @@ class CodeGlory extends BreakDown {
         this.centerView();
     }
 
-    updateWidthFromContent(el) {
+    updateSizeFromContent(el) {
         let w = 0;
         let h = 0;
         let code = this.wrapper.querySelector('pre code');
@@ -39,8 +42,13 @@ class CodeGlory extends BreakDown {
         });
         // slight hack for varying font metrics, not optimal but works
         w = w * 1.125;
-        // update width slider
+        // we'll quickly check if width value was provided in url and return if so
+        let width = this.settings.getParamValue('width');
+        if (width !== undefined) return;
+        // update sliders
         this.updateSliderValue('width', w);
+        let height = this.settings.getParamValue('height');
+        if (height !== undefined) return;
         this.updateSliderValue('height', h);
     }
 
@@ -215,15 +223,9 @@ class CodeGlory extends BreakDown {
         $inner.style.width = 100 + w + ispace + ospace + p + 'ch';
         $inner.style.height = 100 + h + ispace + ospace + p + 'ch';
 
-        // now get dimensions as calculated by browser in px measurement
-        w = $inner.offsetWidth;
-        h = $inner.offsetHeight;
-
-        console.log('AFTER | w: ' + w, '  h: ' + h);
-
         // apply offset dimensions to fx layer so it grows with inner content
-        $fx.style.width = w + 'px';
-        $fx.style.height = h + 'px';
+        $fx.style.width = $inner.offsetWidth + 'px';
+        $fx.style.height = $inner.offsetHeight + 'px';
         $fx.style.transform = transform;
     }
 
