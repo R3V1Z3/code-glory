@@ -41,6 +41,7 @@
   --rotatex: 20deg;
   --rotatey: 10deg;
   --rotatez: 0deg;
+  --scalez: 1.0;
   --translatez: 0px;
 }
 
@@ -53,6 +54,7 @@
     rotateX(var(--rotatex))
     rotateY(var(--rotatey))
     rotateZ(var(--rotatez))
+    scaleZ(var(--scalez))
     translateZ(var(--translatez));
   transform-origin: var(--originx) var(--originy);
   transform-style: preserve-3d;

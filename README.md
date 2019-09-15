@@ -119,9 +119,9 @@ originx `🅑-slider="50%,0,100,1,%"`
 originy `🅑-slider="50%,0,100,1,%"`
 rotatex `🅑-slider="20deg,0,360,1,deg"`
 rotatey `🅑-slider="10deg,0,360,1,deg"`
-scalez `🅑-slider="0,1,5,0.1"`
 rotatez `🅑-slider="0deg,0,360,1,deg"`
 translatez `🅑-slider="0px,-500,500,1,px"`
+scalez `🅑-slider="0,1,5,0.1"`
 
 ## Dimensions `🅑-collapsible`
 
