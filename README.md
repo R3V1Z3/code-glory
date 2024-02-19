@@ -152,5 +152,5 @@ Ready-made templates:
 
 ## Help `🅑-group`
 
-`🅑-help="https://github.com/ugotsta/code-glory/#code-glory"`
+`🅑-help="https://github.com/R3V1Z3/code-glory/#code-glory"`
 `🅑-hide`
